@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Noto Sans");
+@import url("https://fonts.googleapis.com/css?family=Arya");
+@import url("https://fonts.googleapis.com/css?family=Source Sans Pro");
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Noto Sans", "Arya", "Source Sans Pro", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

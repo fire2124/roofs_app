@@ -1,0 +1,70 @@
+{
+    "header": [
+        {
+            "label": "O FIRME",
+            "href": "about_company"
+        },
+        {
+            "label": "Naše služby",
+            "href": "our_services"
+        },
+        {
+            "label": "Kontaktujte nás",
+            "href": "contact"
+        }
+    ],
+    "main": {
+        "h1": "Nová strecha je ďalším bezpečným domovom",
+        "label": "Pristupujeme ku každému projektu individuálne",
+        "what_we_offer": [
+            "Hydroizolácie plochých striech, fólie a asfaltové pásy",
+            "Bežné a atypické klampiarske práce",
+            "Pokládka rôznych krytín",
+            "Výroba klampiarskych profilov",
+            "Stavba krovov"
+        ],
+        "house_text": [
+            {
+                "label": "HYDROIZOLÁCIE PLOCHÝCH STRIECH,",
+                "text": "Jednou z najdôležitejších vlastností plochej strechy je jej vodotesnosť. Vodotesnosť plochej strechy zaisťuje hydroizolačná vrstva a preto je najdôležitejšou vrstvou. Hydroizolačnú vrstvu pri plochých strechách zabezpečuje povlaková krytina. V súčasnej dobe je na trhu veľmi široká škála povlakových krytín vyrobených z materiálov s najrôznejšími chemickými a fyzikálnymi vlastnosťami."
+            },
+            {
+                "label": "FÓLIE A ASFALTOVANÉ PÁSY",
+                "text": "V posledných rokoch sa stretávame s množstvom rôznych nových dru-hov materiálov, vhodných pre skladbu strešného plášťa plochých striech, ako aj s množstvom rôzneho sortimentu. Či už sú to povlakové fólie na báze mPVC (polyvinylchlorid), TPO fólie (termoplastický olefín), alebo rôzne druhy asfaltovaných pásov. Dôležité je si uvedomiť, že aj najlepší materiál sám o sebe nemusí vždy zabezpečiť optimálny výsle-dok po celú dobu životnosti, kým ich umiestnenie nebude v súlade s ostatnými materiálmi, alebo ich aplikácia nebude správna."
+            },
+            {
+                "label": "BEŽNÉ A ATYPICKÉ KLAMPIARSKE PRÁCE",
+                "text": "Každá rekonštrukcia alebo novostavba si vyžaduje množstvo klampiarskych prvkov, či už sú to rôzne odvodňovacie prvky, atikové plechy, rôzne oplechovania, kryty a pod. Na plochých strechách nie je výnimkou, že každá strecha obsahuje klampiarske prvky  ktoré sú atypické a nie je ich možné kúpiť v predajni."
+            },
+            {
+                "label": "POKLÁDKA RÔZNYCH KRYTÍN",
+                "text": "V súčastnosti sa využívajú rôzne druhy krovov, či už ide o pultovú, sedlovú, valbovú, polvalbovú, manzardovú a pod. Naša firma realizuje rôzne druhy krovov a samozrejme aj pokládku rôznych strešných krytín."
+            },
+            {
+                "label": "STAVBA KROVOV",
+                "text": "V súčastnosti sa využívajú rôzne druhy krovov, či už ide o pultovú, sedlovú, valbovú, polvalbovú, manzardovú a pod. Naša firma realizuje rôzne druhy krovov a samozrejme aj pokládku rôznych strešných krytín."
+            },
+            {
+                "label": "VÝROBA KLAMPIARSKYCH PROFILOV",
+                "text": "Naša firma disponuje vlastnou ohýbačkou a tiež nožnicami kde sa tieto atypické prvky vyrábajú."
+            }
+        ],
+        "pictures_label": [
+            "Na proces návrhu skladby strešného plášťa je na jednej strane ovplyvňovaný meniacimi sa klimatickými podmienkami, na strane druhej meniacim sa sortimentom používaných materiálov a technologických postupov. Naša firma pristupuje ku každému projektu individuálne a snaží sa nájsť najlepšie a samozrejme cenovo najvýhodnejšie riešenie.",
+            "Naši zamestnanci sú skúsení klampiari, vyrábajú a montujú tieto klampiarske prvky tak aby naplnili všetky vaše očakávania."
+        ]
+    },
+    "about_company": {
+        "header": "O FIRME",
+        "text": [
+            "Firma každoročne prechádza rôznymi seminármi a školeniami ohľadne prezentácii nových produktov, technológii alebo školeniami zameranými na riešenie hlavných problémov resp. chýb na plochých strechách. Naša firma si je vedomá dôležitosti detailov, resp. prestupov na plochých strechách, ktoré sú hlavnou príčinou zatekania plochých striech.",
+            "Firma má všetky potrebné certifikáty na vykonávanie hydroizolačných prác, BOZP na prácu vo výškach a nad voľnou hĺbkou a zdravotné prehliadky.  Za svoju existenciu dokázala uspokojiť množstvo odberateľov. Firma STRECHY – F.M.J s.r.o, pristupuje k svojej práci zodpovedne čo potvrdzuje jej vyťaženosť."
+        ]
+    },
+    "contact": {
+        "header": "KONTAKT",
+        "name": "František Polák",
+        "tel": "0908 345 218",
+        "mail": "frantisekpolak2458@gmail.com"
+    }
+}
