@@ -3,9 +3,7 @@ import Burger from "./burger";
 import logo from "../../images/logo.svg";
 
 const StyledNav = styled.nav`
-  display: flex;
-  width: 100%;
-  width: 100%;
+  width: 70%;
   padding: 5px 20px;
   display: flex;
   justify-content: space-between;
@@ -14,21 +12,15 @@ const StyledNav = styled.nav`
   }
 `;
 
-const StyledNavigationItems = styled.div`
-  display: flex;
-  margin-left: 60%;
+const StyledImg = styled.img`
+  padding: 15px 0;
 `;
-
 
 const Header = () => {
   return (
-    <StyledNav >
-      <a href="/" >
-        <img
-          src={logo}
-          alt="Logo"
-          width="200px"
-        />
+    <StyledNav>
+      <a href="/">
+        <StyledImg src={logo} alt="Logo" width="200px" height="auto"/>
       </a>
       <Burger />
     </StyledNav>

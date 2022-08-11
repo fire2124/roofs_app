@@ -4,7 +4,13 @@ import image_header from "../../images/image_header.png";
 import house1 from "../../images/house1.png";
 import house2 from "../../images/house2.png";
 import rect from "../../images/Rectangle 14.png";
+import arrow from "../../images/arrow.svg";
 
+const StyledImg = styled.img`
+  position: absolute;
+  z-index: 10;
+  margin-top: 1.5%;
+`;
 const MainSectionOne = styled.div`
   height: 100%;
   width: 100%;
@@ -19,7 +25,7 @@ const Flex = styled.div`
   align-items: center;
   position: absolute;
   top: 80%;
-  left: 33%;
+  left: 27.5%;
   transform: translate(-50%, -50%);
 `;
 const WhiteH1 = styled.h1`
@@ -50,24 +56,28 @@ const WhiteSmallLabel = styled.p`
 const MainBackground = styled.article`
   margin-top: 1%;
   z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 `;
 
 const WhiteMainImg = styled.img`
   position: absolute;
   z-index: 1;
-  width: 1440px;
+  width: 100%;
   height: 3250.5px;
-  left: 239px;
-  top: 59%;
+  top: 57.5%;
 `;
 
 const Bdiv = styled.div`
   position: absolute;
-  width: 252px;
+  width: 234px;
   height: 1880px;
   left: 1669px;
   top: 59%;
   background: #e2dfdc;
+  @media (min-width: 1200px) and (max-width: 1920px) {
+    display: none;
+  }
 `;
 
 const Bdiv0 = styled.div`
@@ -77,34 +87,45 @@ const Bdiv0 = styled.div`
   top: 1950px;
   background: #e2dfdc;
   transform: rotate(-180deg);
+  @media (min-width: 1200px) and (max-width: 1920px) {
+    display: none;
+  }
 `;
 
 const Offering = styled.section`
-  margin-left: 10%;
+  margin-left: 33%;
   margin-top: 4%;
 `;
 
-const OfferingP = styled.p`
+const OfferingA = styled.a`
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
-  font-feature-settings: "case" on;
+  text-decoration: none;
+  /* identical to box height, or 150% */
+
+  font-feature-settings: "pnum" on, "lnum" on, "case" on;
   color: #242424;
   position: relative;
   z-index: 2;
-  left: 60%;
+`;
+
+const StyledUl = styled.ul`
+  list-style-type: none;
 `;
 
 const DarkBlueImg = styled.section`
   width: 595px;
   background: #32323f;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 `;
 const DarkBlueImg2 = styled.section`
   width: 595px;
   background: #32323f;
   margin-left: 29%;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 `;
 const WhiteSmallText = styled.p`
   font-family: "Noto Sans";
@@ -116,6 +137,7 @@ const WhiteSmallText = styled.p`
     "ss03" on, "ss04" on, "ss05" on, "ss18" on, "ss19" on;
   color: #ffffff;
   z-index: 2;
+  padding: 20px 33px 20px 50px;
 `;
 
 const FlexArticle = styled.article`
@@ -123,15 +145,15 @@ const FlexArticle = styled.article`
   align-items: center;
   position: absolute;
   z-index: 2 ;
-  top: 180%;
+  top: 170%;
   left: 50%;
   margin-right: -30%;
   transform: translate(-50%, -50%) }
 `;
 
 const FlexArticle2 = styled(FlexArticle)`
-  top: 300%;
-`
+  top: 290%;
+`;
 const StyledSectionRight = styled.section`
   margin-left: 20%;
 `;
@@ -148,6 +170,10 @@ const StyledH2 = styled.h2`
   color: #242424;
 `;
 
+const StyledH2Right = styled(StyledH2)`
+  text-align: right;
+`;
+
 const StyledP = styled.p`
   font-family: "Noto Sans";
   font-style: normal;
@@ -159,11 +185,32 @@ const StyledP = styled.p`
   color: #000000;
 `;
 
+const OrangeLine = styled.div(
+  ({ theme }) => `
+  height: ${theme * 3}%;
+  width: 0.001px;
+  margin-left: -2%;
+  margin-top: 4.5%;
+  border: 1px solid #F58310;
+  background: #F58310;
+  position: absolute;
+`
+);
+
+const OrangeLineRight = styled(OrangeLine)`
+  margin-left: 42.5%;
+  margin-top: -24%;
+`;
+const OrangeLineRight2 = styled(OrangeLine)`
+  margin-left: 33.5%;
+  margin-top: -16%;
+`;
+
 function Main() {
   return (
     <>
+      <MainImg src={image_header} alt="header_image" />
       <MainSectionOne>
-        <MainImg src={image_header} alt="header_image" />
         <Flex>
           <div>
             <WhiteH1>
@@ -191,9 +238,16 @@ function Main() {
           <Bdiv />
         </section>
         <Offering>
-          {json.main.what_we_offer.map((e: string, i: number) => {
-            return <OfferingP key={i}>{e}</OfferingP>;
-          })}{" "}
+          <StyledImg src={arrow} alt="arrow" />
+          <StyledUl>
+            {json.main.what_we_offer.map((e: any, i: number) => {
+              return (
+                <li key={i}>
+                  <OfferingA href={e.href}>{e.text}</OfferingA>
+                </li>
+              );
+            })}{" "}
+          </StyledUl>
         </Offering>
       </MainBackground>
       <FlexArticle>
@@ -203,12 +257,31 @@ function Main() {
         </DarkBlueImg>
         <StyledSectionRight>
           {json.main.house_text.map((e: any, i: number) => {
-            if (i < 3)
+            const countOfSymbols = e.text
+              .split(".")
+              .map((e: any) => {
+                return e.split(",").length;
+              })
+              .reduce((a: number, b: number) => a + b, 0);
+            if (i === 0 || i === 2)
               return (
-                <div key={i}>
-                  <StyledH2> {e.label}</StyledH2>
-                  <StyledP> {e.text}</StyledP>
-                </div>
+                <>
+                  <OrangeLine theme={countOfSymbols} />
+                  <div key={i}>
+                    <StyledH2> {e.label}</StyledH2>
+                    <StyledP> {e.text}</StyledP>
+                  </div>
+                </>
+              );
+            else if (i === 1)
+              return (
+                <>
+                  <div key={i}>
+                    <StyledH2Right> {e.label}</StyledH2Right>
+                    <StyledP> {e.text}</StyledP>
+                  </div>
+                  <OrangeLineRight theme={countOfSymbols} />
+                </>
               );
             else return null;
           })}{" "}
@@ -217,12 +290,31 @@ function Main() {
       <FlexArticle2>
         <StyledSectionLeft>
           {json.main.house_text.map((e: any, i: number) => {
-            if (i >= 3)
+            const countOfSymbols = e.text
+              .split(".")
+              .map((e: any) => {
+                return e.split(",").length;
+              })
+              .reduce((a: number, b: number) => a + b, 0);
+            if (i === 3 || i === 5)
               return (
-                <div key={i}>
-                <StyledH2> {e.label}</StyledH2>
-                <StyledP> {e.text}</StyledP>
-              </div>
+                <>
+                  <OrangeLine theme={i === 5 ? 9.5 : countOfSymbols} />
+                  <div key={i}>
+                    <StyledH2> {e.label}</StyledH2>
+                    <StyledP> {e.text}</StyledP>
+                  </div>
+                </>
+              );
+            else if (i === 4)
+              return (
+                <>
+                  <div key={i}>
+                    <StyledH2Right> {e.label}</StyledH2Right>
+                    <StyledP> {e.text}</StyledP>
+                  </div>
+                  <OrangeLineRight2 theme={countOfSymbols} />
+                </>
               );
             else return null;
           })}

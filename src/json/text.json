@@ -17,11 +17,11 @@
         "h1": "Nová strecha je ďalším bezpečným domovom",
         "label": "Pristupujeme ku každému projektu individuálne",
         "what_we_offer": [
-            "Hydroizolácie plochých striech, fólie a asfaltové pásy",
-            "Bežné a atypické klampiarske práce",
-            "Pokládka rôznych krytín",
-            "Výroba klampiarskych profilov",
-            "Stavba krovov"
+            {"text":"Hydroizolácie plochých striech, fólie a asfaltové pásy","href":"hydroizolacie"},
+            {"text":"Bežné a atypické klampiarske práce","href":"hydroizolacie"},
+            {"text":"Pokládka rôznych krytín","href":"hydroizolacie"},
+            {"text":"Výroba klampiarskych profilov","href":"hydroizolacie"},
+            {"text":"Stavba krovov","href":"hydroizolacie"}
         ],
         "house_text": [
             {

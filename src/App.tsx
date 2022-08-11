@@ -17,9 +17,9 @@ function App() {
       <main>
         <Main />
         <Gallery />
-         {/*<About /> */}
+        {/* <About /> */}
       </main>
-      {/* <Footer /> */}
+      {/* <Footer />  */}
     </Background>
   );
 }
