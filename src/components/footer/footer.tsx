@@ -9,18 +9,20 @@ const StyledHeader = styled.p`
   line-height: 104.2%;
   font-feature-settings: "pnum" on, "lnum" on, "case" on;
   color: #ffffff;
+  text-align: right;
 `;
 
-const StyledText = styled.p`
+const StyledText = styled.section`
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
-  text-align: right;
   font-feature-settings: "pnum" on, "lnum" on, "case" on, "ss01" on, "ss02" on,
     "ss03" on, "ss04" on, "ss05" on, "ss18" on, "ss19" on;
   color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 `;
 const StyledTextA = styled.a`
   font-family: "Noto Sans";
@@ -32,25 +34,35 @@ const StyledTextA = styled.a`
   font-feature-settings: "pnum" on, "lnum" on, "case" on, "ss01" on, "ss02" on,
     "ss03" on, "ss04" on, "ss05" on, "ss18" on, "ss19" on;
   color: #ffffff;
-  text-decoration: none;
+`;
+
+const StykedFooter = styled.footer`
+  position: absolute;
+  z-index: 10;
+  margin-top: 205%;
+  margin-left: 50%;
 `;
 
 function Footer() {
   return (
-    <footer>
+    <StykedFooter>
       <StyledHeader>{json.contact.header}</StyledHeader>
       <StyledText>
-        {json.contact.name} Tel.:
-        <StyledTextA href="tel:+421 908 345 218">
-          {json.contact.tel}
-        </StyledTextA>{" "}
-        mail:
-        <StyledTextA href="mailto:frantisekpolak2458@gmail.com">
-          {" "}
-          {json.contact.mail}
-        </StyledTextA>
+        <div>{json.contact.name}</div>
+        <div>
+          {" Tel.: "}
+          <StyledTextA href="tel:+421 908 345 218">
+            {json.contact.tel}
+          </StyledTextA>
+        </div>
+        <div>
+          mail:
+          <StyledTextA href="mailto:frantisekpolak2458@gmail.com">
+           {" "} {json.contact.mail}
+          </StyledTextA>
+        </div>
       </StyledText>
-    </footer>
+    </StykedFooter>
   );
 }
 

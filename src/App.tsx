@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Background = styled.div`
   background: #32323f;
-  height: 4667px;
+  height: 5000px;
 `;
 
 function App() {
@@ -16,10 +16,10 @@ function App() {
       <Header />
       <main>
         <Main />
-        <Gallery />
-        {/* <About /> */}
+        {/* <Gallery /> */}
+        <About />
       </main>
-      {/* <Footer />  */}
+      <Footer /> 
     </Background>
   );
 }

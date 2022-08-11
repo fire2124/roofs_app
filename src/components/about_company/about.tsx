@@ -22,14 +22,35 @@ const StyledText = styled.p`
   color: #ffffff;
 `;
 
+const StyledArticle = styled.article`
+  position: absolute;
+  z-index: 10;
+  margin-top: 180%;
+  padding: 0 10% 0% 10%;
+  width: 45%;
+`;
+
+const OrangeLine = styled.div(
+  ({ theme }) => `
+  height: ${theme * 3}%;
+  width: 0.001px;
+  margin-left: -3.5%;
+  margin-top: 6%;
+  border: 1px solid #F58310;
+  background: #F58310;
+  position: absolute;
+`
+);
+
 function About() {
   return (
-    <>
+    <StyledArticle>
+      <OrangeLine theme={28} />
       <StyledHeader>{json.about_company.header}</StyledHeader>
       {json.about_company.text.map((e: string, i: number) => {
         return <StyledText key={i}> {e}</StyledText>;
       })}
-    </>
+    </StyledArticle>
   );
 }
 
