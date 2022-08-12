@@ -13,14 +13,14 @@ const StyledNav = styled.nav`
 `;
 
 const StyledImg = styled.img`
-  padding: 15px 0;
+  padding: 5px 0;
 `;
 
 const Header = () => {
   return (
     <StyledNav>
       <a href="/">
-        <StyledImg src={logo} alt="Logo" width="200px" height="auto"/>
+        <StyledImg src={logo} alt="Logo" width="200px" height="100%"/>
       </a>
       <Burger />
     </StyledNav>

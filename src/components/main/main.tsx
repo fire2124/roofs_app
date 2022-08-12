@@ -3,7 +3,6 @@ import styled from "styled-components";
 import image_header from "../../images/image_header.png";
 import house1 from "../../images/house1.png";
 import house2 from "../../images/house2.png";
-import rect from "../../images/Rectangle 14.png";
 import arrow from "../../images/arrow.svg";
 
 const StyledImg = styled.img`
@@ -60,36 +59,19 @@ const MainBackground = styled.article`
   grid-template-columns: repeat(2, minmax(0, 1fr));
 `;
 
-const WhiteMainImg = styled.img`
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 3250.5px;
-  top: 57.5%;
-`;
-
 const Bdiv = styled.div`
-  position: absolute;
-  width: 234px;
-  height: 1880px;
-  left: 1669px;
-  top: 59%;
-  background: #e2dfdc;
-  @media (min-width: 1200px) and (max-width: 1920px) {
-    display: none;
-  }
+  width: 0;
+  height: 0;
+  border-top: 1605px solid #32323f;
+  border-right: 1000px solid transparent;
+  margin-top: -2.5%;
 `;
 
-const Bdiv0 = styled.div`
-  position: absolute;
-  width: 239px;
-  height: 1845.5px;
-  top: 1950px;
-  background: #e2dfdc;
-  transform: rotate(-180deg);
-  @media (min-width: 1200px) and (max-width: 1920px) {
-    display: none;
-  }
+const Bdiv2 = styled.div`
+  width: 0;
+  height: 0;
+  border-bottom: 1600px solid #32323f;
+  border-left: 1900px solid transparent;
 `;
 
 const Offering = styled.section`
@@ -214,7 +196,7 @@ function Main() {
         <Flex>
           <div>
             <WhiteH1>
-              {json.main.h1.split(" ").map((e, index) => {
+              {json.main.h1.split(" ").map((e: any, index: number) => {
                 if (index < 3) return `${e} `;
                 else if (index === 3)
                   return (
@@ -224,6 +206,7 @@ function Main() {
                     </>
                   );
                 else if (index === 4) return `${e}`;
+                else return null;
               })}
               <OrangeH1>{json.main.h1.split(" ")[5]}</OrangeH1>
             </WhiteH1>
@@ -233,17 +216,18 @@ function Main() {
       </MainSectionOne>
       <MainBackground>
         <section>
-          <Bdiv0 />
-          <WhiteMainImg src={rect} alt="rect" />
           <Bdiv />
+          <Bdiv2 />
         </section>
         <Offering>
-          <StyledImg src={arrow} alt="arrow" />
+          <StyledImg src={arrow} alt="arrow" width="auto" height="auto" />
           <StyledUl>
             {json.main.what_we_offer.map((e: any, i: number) => {
               return (
                 <li key={i}>
-                  <OfferingA href={e.href}>{e.text}</OfferingA>
+                  <OfferingA href={e.href} key={i}>
+                    {e.text}
+                  </OfferingA>
                 </li>
               );
             })}{" "}
@@ -252,7 +236,7 @@ function Main() {
       </MainBackground>
       <FlexArticle>
         <DarkBlueImg>
-          <img src={house1} alt="house1" />
+          <img src={house1} alt="house1" width="auto" height="100%" />
           <WhiteSmallText>{json.main.pictures_label[0]}</WhiteSmallText>
         </DarkBlueImg>
         <StyledSectionRight>
@@ -277,7 +261,16 @@ function Main() {
               return (
                 <>
                   <div key={i}>
-                    <StyledH2Right> {e.label}</StyledH2Right>
+                    <StyledH2Right>
+                      {e.label.includes("<br/>") ? (
+                        <>
+                          {e.label.split("<br/>")[0]} <br />
+                          {e.label.split("<br/>")[1]}
+                        </>
+                      ) : (
+                        e.label
+                      )}
+                    </StyledH2Right>
                     <StyledP> {e.text}</StyledP>
                   </div>
                   <OrangeLineRight theme={countOfSymbols} />
@@ -320,7 +313,7 @@ function Main() {
           })}
         </StyledSectionLeft>
         <DarkBlueImg2>
-          <img src={house2} alt="house2" />
+          <img src={house2} alt="house2" width="auto" height="100%" />
           <WhiteSmallText>{json.main.pictures_label[1]}</WhiteSmallText>
         </DarkBlueImg2>
       </FlexArticle2>

@@ -39,7 +39,7 @@ const StyledTextA = styled.a`
 const StykedFooter = styled.footer`
   position: absolute;
   z-index: 10;
-  margin-top: 205%;
+  margin-top: 20%;
   margin-left: 50%;
 `;
 

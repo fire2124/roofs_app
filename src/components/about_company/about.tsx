@@ -25,7 +25,7 @@ const StyledText = styled.p`
 const StyledArticle = styled.article`
   position: absolute;
   z-index: 10;
-  margin-top: 180%;
+  margin-top: 0%;
   padding: 0 10% 0% 10%;
   width: 45%;
 `;

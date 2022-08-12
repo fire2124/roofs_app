@@ -7,18 +7,23 @@ import styled from "styled-components";
 
 const Background = styled.div`
   background: #32323f;
-  height: 5000px;
+  height: 4500px;
 `;
+
+const BackgroundSection = styled.section`
+  background: #e2dfdc;
+`;
+
 
 function App() {
   return (
     <Background>
       <Header />
-      <main>
+      <BackgroundSection>
         <Main />
         {/* <Gallery /> */}
         <About />
-      </main>
+      </BackgroundSection>
       <Footer /> 
     </Background>
   );

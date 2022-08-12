@@ -53,7 +53,7 @@ const RightNav = ({ open }) => {
     >
       {json.header.map((e, index) => {
         return (
-          <StyledLi><StyledA href={e.href} key={index}>
+          <StyledLi key={index}><StyledA href={e.href} key={index}>
             {e.label}
           </StyledA></StyledLi>
 
