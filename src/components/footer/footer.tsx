@@ -23,6 +23,9 @@ const StyledText = styled.section`
   color: #ffffff;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  @media (min-width: 300px) AND (max-width: 600px) {
+    display: block;
+  }
 `;
 const StyledTextA = styled.a`
   font-family: "Noto Sans";
@@ -34,13 +37,22 @@ const StyledTextA = styled.a`
   font-feature-settings: "pnum" on, "lnum" on, "case" on, "ss01" on, "ss02" on,
     "ss03" on, "ss04" on, "ss05" on, "ss18" on, "ss19" on;
   color: #ffffff;
+
 `;
 
 const StykedFooter = styled.footer`
-  position: absolute;
-  z-index: 10;
-  margin-top: 20%;
-  margin-left: 50%;
+  @media (min-width: 300px) AND (max-width: 600px) {
+    background: #32323f;
+    position: static;
+    width: 80%;
+    padding: 2px 10% 4% 10%;
+  }
+  @media (min-width: 600px) {
+    position: absolute;
+    z-index: 10;
+    margin-top: 20%;
+    margin-left: 50%;
+  }
 `;
 
 function Footer() {
@@ -58,7 +70,8 @@ function Footer() {
         <div>
           mail:
           <StyledTextA href="mailto:frantisekpolak2458@gmail.com">
-           {" "} {json.contact.mail}
+            {" "}
+            {json.contact.mail}
           </StyledTextA>
         </div>
       </StyledText>

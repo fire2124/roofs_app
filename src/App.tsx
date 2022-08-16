@@ -8,12 +8,18 @@ import styled from "styled-components";
 const Background = styled.div`
   background: #32323f;
   height: 4500px;
+  @media (min-width: 300px) and (max-width: 600px) {
+    height: 3396px;
+  }
 `;
 
 const BackgroundSection = styled.section`
   background: #e2dfdc;
-`;
 
+  @media (min-width: 300px) and (max-width: 600px) {
+    background: #32323f;
+  }
+`;
 
 function App() {
   return (
@@ -24,7 +30,7 @@ function App() {
         {/* <Gallery /> */}
         <About />
       </BackgroundSection>
-      <Footer /> 
+      <Footer />
     </Background>
   );
 }

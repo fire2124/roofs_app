@@ -2,7 +2,29 @@
     "header": [
         {
             "label": "O FIRME",
-            "href": "about_company"
+            "href": "about_company",
+            "child":[
+                {
+                    "label": "Hydroizolácie plochých striech, fólie a asfaltové pásy",
+                    "href": "hydro_izolation"
+                },
+                {
+                    "label": "Bežné a atypické klampiarske práce",
+                    "href": "tinkering_work"
+                },
+                {
+                    "label": "Pokládka rôznych krytín",
+                    "href": "coverings"
+                },
+                {
+                    "label": "Stavba krovov",
+                    "href": "trusses"
+                },
+                {
+                    "label": "Výroba klampiarskych profilov",
+                    "href": "stud_profiles"
+                }
+            ]
         },
         {
             "label": "Naše služby",
@@ -25,7 +47,7 @@
         ],
         "house_text": [
             {
-                "label": "HYDROIZOLÁCIE PLOCHÝCH STRIECH,",
+                "label": "HYDROIZOLÁCIE PLOCHÝCH STRIECH",
                 "text": "Jednou z najdôležitejších vlastností plochej strechy je jej vodotesnosť. Vodotesnosť plochej strechy zaisťuje hydroizolačná vrstva a preto je najdôležitejšou vrstvou. Hydroizolačnú vrstvu pri plochých strechách zabezpečuje povlaková krytina. V súčasnej dobe je na trhu veľmi široká škála povlakových krytín vyrobených z materiálov s najrôznejšími chemickými a fyzikálnymi vlastnosťami."
             },
             {

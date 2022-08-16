@@ -28,6 +28,11 @@ const StyledArticle = styled.article`
   margin-top: 0%;
   padding: 0 10% 0% 10%;
   width: 45%;
+  @media (min-width: 300px) AND (max-width: 430px) {
+    position: static;
+    width: 80%;
+    padding: 0 10% 4% 10%;
+  }
 `;
 
 const OrangeLine = styled.div(

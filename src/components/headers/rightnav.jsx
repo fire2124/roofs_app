@@ -26,25 +26,43 @@ const Ul = styled.ul`
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #F69532;
+    background-color: #343441;
     position: fixed;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     top: -17px;
     right: 0;
-    height: 210px;
+    height: 896px;
     width: 100%;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
     a {
-      color: #32323F;
+      color: #FFFFFF;
     }
   }
 `;
 
 const StyledLi = styled.li`
-    margin-left: 33%;
+    margin-left: 10%;
     margin-top: 3%;
 `;
+
+const StyledA2 = styled(StyledA)`
+    color: #F79532 !important;
+`
+const StyledA3 = styled(StyledA)`
+    white-space:  normal !important;
+
+`
+
+const StyledUl = styled.ul`
+  list-style: none;
+
+`
+const StyledLi2 = styled.li`
+    margin-left: 10%;
+    margin-top: 3%;
+`;
+
 
 const RightNav = ({ open }) => {
   return (
@@ -53,10 +71,25 @@ const RightNav = ({ open }) => {
     >
       {json.header.map((e, index) => {
         return (
-          <StyledLi key={index}><StyledA href={e.href} key={index}>
-            {e.label}
-          </StyledA></StyledLi>
-
+          <StyledLi key={index}>
+            {index === 2 ?
+              <StyledA2 href={e.href} key={index}>
+                {e.label}
+              </StyledA2> :
+              <StyledA href={e.href} key={index}>
+                {e.label}
+                {open === true && window.innerWidth < 768 ? <StyledUl>
+                  {e.child ? e.child.map((child, index2) =>
+                    <StyledLi2 key={index}>
+                      <StyledA3 href={child.href} key={index2}>
+                        {child.label}
+                      </StyledA3>
+                    </StyledLi2>) : null}
+                </StyledUl>
+                  : null}
+              </StyledA>
+            }
+          </StyledLi>
         );
       })}
     </Ul>
