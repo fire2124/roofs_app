@@ -1,14 +1,18 @@
 import styled from "styled-components";
 import Burger from "./burger";
 import logo from "../../images/logo.svg";
+import {mobileMax} from "../responsiveness"
 
 const StyledNav = styled.nav`
   width: 70%;
-  padding: 5px 20px 20px;
+  padding: 5px 20px;
   display: flex;
   justify-content: space-between;
   .logo {
     padding: 15px 0;
+  }
+  @media (max-width: ${mobileMax}px) {
+    padding: 5px 20px 20px;
   }
 `;
 

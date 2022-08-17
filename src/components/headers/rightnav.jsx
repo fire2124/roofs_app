@@ -15,7 +15,7 @@ const Ul = styled.ul`
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
     top: -17px;
     right: 0;
-    height: 896px;
+    height: 100%;
     width: 100%;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
@@ -72,7 +72,7 @@ const StyledLi2 = styled.li`
 `;
 
 
-const RightNav = ({ open }) => {
+const RightNav = ({ open,setOpen }) => {
   return (
     <Ul
       open={open}
@@ -81,15 +81,15 @@ const RightNav = ({ open }) => {
         return (
           <StyledLi key={index}>
             {index === 2 ?
-              <StyledA2 href={`#${e.href}`} key={index}>
+              <StyledA2 href={`#${e.href}`} key={index} onClick={() => setOpen(!open)}>
                 {e.label}
               </StyledA2> :
-              <StyledA href={`#${e.href}`} key={index}>
+              <StyledA href={`#${e.href}`} key={index} onClick={() => setOpen(!open)}>
                 {e.label}
                 {open === true && window.innerWidth < 768 ? <StyledUl>
                   {e.child ? e.child.map((child, index2) =>
                     <StyledLi2 key={index}>
-                      <StyledA3 href={`#${child.href}`} key={index2}>
+                      <StyledA3 href={`#${child.href}`} key={index2} onClick={() => setOpen(!open)}>
                         {child.label}
                       </StyledA3>
                     </StyledLi2>) : null}

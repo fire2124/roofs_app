@@ -1,5 +1,6 @@
 import json from "../../json/text.json";
 import styled from "styled-components";
+import { mobileMax } from "../responsiveness";
 
 const StyledHeader = styled.p`
   font-family: "Arya";
@@ -25,13 +26,15 @@ const StyledText = styled.p`
 const StyledArticle = styled.article`
   position: absolute;
   z-index: 10;
-  margin-top: 0%;
+  margin-top: 100%;
   padding: 0 10% 0% 10%;
   width: 45%;
-  @media (min-width: 300px) AND (max-width: 430px) {
+  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     position: static;
     width: 80%;
     padding: 0 10% 4% 10%;
+    margin-top: 0%;
+
   }
 `;
 
@@ -44,17 +47,29 @@ const OrangeLine = styled.div(
   border: 1px solid #F58310;
   background: #F58310;
   position: absolute;
+
+  @media (min-width: 300px) AND (max-width: 430px) {
+    height: ${theme * 2.3}%;
+  }
 `
 );
+
+const StyledSection = styled.section`
+  margin-left: 10%;
+`;
 
 function About() {
   return (
     <StyledArticle>
       <OrangeLine theme={28} />
-      <StyledHeader id="about_company">{json.about_company.header}</StyledHeader>
-      {json.about_company.text.map((e: string, i: number) => {
-        return <StyledText key={i}> {e}</StyledText>;
-      })}
+      <StyledSection>
+        <StyledHeader id="about_company">
+          {json.about_company.header}
+        </StyledHeader>
+        {json.about_company.text.map((e: string, i: number) => {
+          return <StyledText key={i}> {e}</StyledText>;
+        })}
+      </StyledSection>
     </StyledArticle>
   );
 }

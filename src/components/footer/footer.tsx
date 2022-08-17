@@ -1,5 +1,6 @@
 import json from "../../json/text.json";
 import styled from "styled-components";
+import { mobileMax } from "../responsiveness";
 
 const StyledHeader = styled.p`
   font-family: "Arya";
@@ -10,6 +11,9 @@ const StyledHeader = styled.p`
   font-feature-settings: "pnum" on, "lnum" on, "case" on;
   color: #ffffff;
   text-align: right;
+  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
+    text-align: left;
+  }
 `;
 
 const StyledText = styled.section`
@@ -23,7 +27,7 @@ const StyledText = styled.section`
   color: #ffffff;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  @media (min-width: 300px) AND (max-width: 600px) {
+  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     display: block;
   }
 `;
@@ -38,19 +42,23 @@ const StyledTextA = styled.a`
     "ss03" on, "ss04" on, "ss05" on, "ss18" on, "ss19" on;
   color: #ffffff;
 
+  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
+    text-align: left;
+  }
+
 `;
 
 const StykedFooter = styled.footer`
-  @media (min-width: 300px) AND (max-width: 600px) {
+  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     background: #32323f;
     position: static;
     width: 80%;
     padding: 2px 10% 4% 10%;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     position: absolute;
     z-index: 10;
-    margin-top: 20%;
+    margin-top: 120%;
     margin-left: 50%;
   }
 `;

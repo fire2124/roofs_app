@@ -1,3 +1,4 @@
+import {useState,useEffect} from "react";
 import json from "../../json/text.json";
 import styled from "styled-components";
 import image_header from "../../images/image_header.svg";
@@ -8,19 +9,20 @@ import house2_small from "../../images/house2_small.svg";
 import arrow from "../../images/arrow.svg";
 import arrow2 from "../../images/arrow2.svg";
 import strecha from "../../images/strecha.svg";
+import { mobileMax } from "../responsiveness";
 
 const StyledImg = styled.img`
   position: absolute;
   z-index: 10;
   margin-top: 1.5%;
-  @media (min-width: 300px) AND (max-width: 430px) {
+  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     position: static;
   }
 `;
 const MainSectionOne = styled.div`
   height: 100%;
   width: 100%;
-  @media (min-width: 300px) and (max-width: 430px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     margin-top: 0;
     margin-left: 5%;
     padding: 0;
@@ -33,25 +35,25 @@ const MainImg = styled.div`
   height: 100%;
   width: 100%;
 
-  @media (min-width: 300px) and (max-width: 430px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     position: static;
     background: url(${strecha}) no-repeat;
     height: 253px;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     position: absolute;
     z-index: 11;
   }
 `;
 
 const Flex = styled.div`
-  @media (min-width: 300px) and (max-width: 430px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     width: 90%;
     position: static;
     z-index: 10;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     display: flex;
     align-items: center;
     position: absolute;
@@ -70,7 +72,7 @@ const WhiteH1 = styled.h1`
   color: #ffffff;
   z-index: 100;
 
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     font-weight: 400;
     font-size: 44px;
     line-height: 106.7%;
@@ -92,10 +94,10 @@ const WhiteSmallLabel = styled.p`
 `;
 
 const MainBackground = styled.article`
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     background: #e2dfdc;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     margin-top: 1%;
     z-index: 0;
     display: grid;
@@ -103,29 +105,32 @@ const MainBackground = styled.article`
   }
 `;
 
-const Bdiv = styled.div`
-  @media (min-width: 600px) {
+const Bdiv = styled.div(
+  ({ theme }) =>`
+  @media (min-width: ${mobileMax}px) {
     width: 0;
     height: 0;
     border-top: 1605px solid #32323f;
-    border-right: 1050px solid transparent;
+    border-right: ${theme*0.984}px solid transparent;
     margin-top: -2.5%;
   }
-`;
+`);
 
-const Bdiv2 = styled.div`
-  @media (min-width: 600px) {
+const Bdiv2 = styled.div(
+  ({ theme }) =>`
+  @media (min-width: ${mobileMax}px) {
     width: 0;
     height: 0;
-    border-bottom: 1600px solid #32323f;
-    border-left: 1900px solid transparent;
+    border-top: 300px solid transparent;
+    border-bottom: ${1900}px solid #32323f;
+    border-left: ${theme*0.984}px solid transparent;
   }
-`;
+`);
 
 const Offering = styled.section`
   margin-left: 33%;
   margin-top: 4%;
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     display: flex;
     width: 80%;
     margin-left: 8%;
@@ -149,16 +154,16 @@ const OfferingA = styled.a`
 
 const StyledUl = styled.ul`
   list-style-type: none;
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     margin-top: 80%;
   }
 `;
 
 const DarkBlueImg = styled.section`
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     position: static;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     width: 595px;
     background: #32323f;
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -168,7 +173,7 @@ const DarkBlueImg2 = styled.section`
   background: #32323f;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     width: 595px;
     margin-left: 29%;
   }
@@ -193,7 +198,7 @@ const FlexArticle = styled.article`
   @media (min-width: 300px) {
     position: static;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     position: absolute;
     z-index: 2;
     display: flex;
@@ -206,28 +211,33 @@ const FlexArticle = styled.article`
 `;
 
 const FlexArticle2 = styled(FlexArticle)`
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     background: #e2dfdc;
     display: flex;
     flex-direction: column-reverse;
     margin-top: -4%;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     top: 290%;
   }
 `;
 const StyledSectionRight = styled.section`
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     background: #e2dfdc;
+    padding: 12px 0 32px 0;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     background: none;
     top: 290%;
     margin-left: 20%;
   }
 `;
 const StyledSectionLeft = styled.section`
-  @media (min-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    padding: 12px 0 32px 0;
+  }
+
+  @media (min-width: ${mobileMax}px) {
     width: 30%;
   }
 `;
@@ -239,7 +249,7 @@ const StyledH2 = styled.h2`
   line-height: 104.2%;
   font-feature-settings: "pnum" on, "lnum" on, "case" on;
   color: #242424;
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     font-weight: 400;
     font-size: 32px;
     line-height: 124.7%;
@@ -248,7 +258,7 @@ const StyledH2 = styled.h2`
 
 const StyledH2Right = styled(StyledH2)`
   text-align: right;
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     text-align: left;
   }
 `;
@@ -274,9 +284,13 @@ const OrangeLine = styled.div(
   background: #F58310;
   position: absolute;
 
-  @media (min-width: 300px) and (max-width: 600px) {
-    margin-left: 8%;
-    height: ${theme * 5}%;
+  @media (min-width: 300px) and (max-width:${mobileMax}px) {
+    position: static;
+    margin-left: 12%;
+    margin-top: 8%;
+    width: 1px;
+    
+    height:${theme * 30}px;
   }
 `
 );
@@ -289,7 +303,7 @@ const OrangeLine2 = styled.div(
   border: 1px solid #F58310;
   background: #F58310;
   position: absolute;
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width:${mobileMax}px) {
     margin-left: 8%;
     height: ${theme * 2.5}%;
   }
@@ -299,47 +313,54 @@ const OrangeLine2 = styled.div(
 const OrangeLineRight = styled(OrangeLine)`
   margin-left: 38.5%;
   margin-top: -28%;
-  @media (min-width: 300px) and (max-width: 600px) {
-    margin-left: 8%;
-    margin-top: -180%;
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    position: static;
+    margin-left: -131%;
+    margin-top: 48%;
+    width: 90%;
+    transform: rotate(90deg);
+    height: 0%;
   }
 `;
 const OrangeLineRight2 = styled(OrangeLine)`
   margin-left: 47%;
   margin-top: -16%;
-  @media (min-width: 300px) and (max-width: 600px) {
-    margin-left: 8%;
-    margin-top: -83%;
-    height:20%;
-
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    position: static;
+    margin-left: -131%;
+    margin-top: 48%;
+    width: 88%;
+    transform: rotate(90deg);
+    height: 0%;
   }
 `;
 
 const OfferDivLeft = styled.div`
   width: 80%;
   margin-left: -24%;
-  @media (min-width: 300px) and (max-width: 600px) {
-    margin-left: 18%;
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    width: 74%;
+    margin-left: 7%;
   }
 `;
 
 const OfferDivRight = styled.div`
-  @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     margin-left: 18%;
     width: 80%;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     margin-right: -50%;
     margin-left: 24%;
   }
 `;
 
 const OfferDivRight2 = styled.div`
- @media (min-width: 300px) and (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     margin-left: 18%;
-    width:80%;
+    width: 100%;
   }
-  @media (min-width: 600px) {
+  @media (min-width: ${mobileMax}px) {
     margin-left: 6%;
   }
 `;
@@ -348,7 +369,31 @@ const OfferDivRight3 = styled.div`
   margin-left: 18%;
 `;
 
+const StyledFlex2 = styled.div`
+  display: flex;
+  flex: 0 1 auto;
+`;
+
+const StyledImg2 = styled.img`
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    width: 100%;
+  }
+`
+
 function Main() {
+  const [width,setWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+     function handleResize (){
+      setWidth(window.innerWidth)
+      // let elHeight = document.getElementById('hydro_izolation').clientHeight
+      // console.log(elHeight)
+    }
+    window.addEventListener("resize", handleResize);
+  });
+
+ 
+
   return (
     <>
       <MainImg />
@@ -376,12 +421,12 @@ function Main() {
       </MainSectionOne>
       <MainBackground>
         <section>
-          <Bdiv />
-          <Bdiv2 />
+          <Bdiv theme={width}/>
+          <Bdiv2 theme={width}/>
         </section>
         <Offering>
           <StyledImg
-            src={window.innerWidth < 600 ? arrow2 : arrow}
+            src={width < mobileMax ? arrow2 : arrow}
             alt="arrow"
             width="auto"
             height="auto"
@@ -401,10 +446,9 @@ function Main() {
       </MainBackground>
       <FlexArticle>
         <DarkBlueImg>
-          <img
-            src={window.innerWidth < 600 ? house1_small : house1}
+          <StyledImg2
+            src={width < mobileMax ? house1_small : house1}
             alt="house1"
-            width="auto"
             height="100%"
           />
           <WhiteSmallText>{json.main.pictures_label[0]}</WhiteSmallText>
@@ -419,17 +463,17 @@ function Main() {
               .reduce((a: number, b: number) => a + b, 0);
             if (i === 0 || i === 2)
               return (
-                <>
+                <StyledFlex2>
                   <OrangeLine theme={i === 0 ? 9.2 : 8} />
                   <OfferDivLeft key={i} id={e.href}>
                     <StyledH2> {e.label}</StyledH2>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivLeft>
-                </>
+                </StyledFlex2>
               );
             else if (i === 1)
               return (
-                <>
+                <StyledFlex2>
                   <OfferDivRight3 key={i}>
                     <StyledH2Right id={e.href}>
                       {e.label.includes("<br/>") ? (
@@ -444,7 +488,7 @@ function Main() {
                     <StyledP> {e.text}</StyledP>
                   </OfferDivRight3>
                   <OrangeLineRight theme={countOfSymbols} />
-                </>
+                </StyledFlex2>
               );
             else return null;
           })}{" "}
@@ -461,32 +505,32 @@ function Main() {
               .reduce((a: number, b: number) => a + b, 0);
             if (i === 3 || i === 5)
               return (
-                <>
+                <StyledFlex2>
                   <OrangeLine2 theme={i === 5 ? 9.5 : countOfSymbols} />
                   <OfferDivRight2 key={i} id={e.href}>
                     <StyledH2> {e.label}</StyledH2>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivRight2>
-                </>
+                </StyledFlex2>
               );
             else if (i === 4)
               return (
-                <>
+                <StyledFlex2>
                   <OfferDivRight key={i}>
                     <StyledH2Right id={e.href}> {e.label}</StyledH2Right>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivRight>
                   <OrangeLineRight2 theme={countOfSymbols} />
-                </>
+                </StyledFlex2>
               );
             else return null;
           })}
         </StyledSectionLeft>
         <DarkBlueImg2>
           <img
-            src={window.innerWidth < 600 ? house2_small : house2}
+            src={width < mobileMax ? house2_small : house2}
             alt="house2"
-            width="auto"
+            width="100%"
             height="100%"
           />
           <WhiteSmallText>{json.main.pictures_label[1]}</WhiteSmallText>
