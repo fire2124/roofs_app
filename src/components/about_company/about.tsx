@@ -51,7 +51,7 @@ function About() {
   return (
     <StyledArticle>
       <OrangeLine theme={28} />
-      <StyledHeader>{json.about_company.header}</StyledHeader>
+      <StyledHeader id="about_company">{json.about_company.header}</StyledHeader>
       {json.about_company.text.map((e: string, i: number) => {
         return <StyledText key={i}> {e}</StyledText>;
       })}

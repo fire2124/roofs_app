@@ -58,7 +58,7 @@ const StykedFooter = styled.footer`
 function Footer() {
   return (
     <StykedFooter>
-      <StyledHeader>{json.contact.header}</StyledHeader>
+      <StyledHeader id="contact">{json.contact.header}</StyledHeader>
       <StyledText>
         <div>{json.contact.name}</div>
         <div>

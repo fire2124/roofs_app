@@ -22,7 +22,9 @@ const MainSectionOne = styled.div`
   width: 100%;
   @media (min-width: 300px) and (max-width: 430px) {
     margin-top: 0;
-    padding: 10px 10px;
+    margin-left: 5%;
+    padding: 0;
+    width: 95%;
   }
 `;
 
@@ -34,7 +36,6 @@ const MainImg = styled.div`
   @media (min-width: 300px) and (max-width: 430px) {
     position: static;
     background: url(${strecha}) no-repeat;
-    width: 414px;
     height: 253px;
   }
   @media (min-width: 600px) {
@@ -91,7 +92,7 @@ const WhiteSmallLabel = styled.p`
 `;
 
 const MainBackground = styled.article`
-  @media (min-width: 300px) and (max-width:600px){
+  @media (min-width: 300px) and (max-width: 600px) {
     background: #e2dfdc;
   }
   @media (min-width: 600px) {
@@ -149,7 +150,7 @@ const OfferingA = styled.a`
 const StyledUl = styled.ul`
   list-style-type: none;
   @media (min-width: 600px) {
-   margin-top:80%;
+    margin-top: 80%;
   }
 `;
 
@@ -207,7 +208,7 @@ const FlexArticle = styled.article`
 const FlexArticle2 = styled(FlexArticle)`
   @media (min-width: 300px) and (max-width: 600px) {
     background: #e2dfdc;
-    display: flex ;
+    display: flex;
     flex-direction: column-reverse;
     margin-top: -4%;
   }
@@ -272,6 +273,11 @@ const OrangeLine = styled.div(
   border: 1px solid #F58310;
   background: #F58310;
   position: absolute;
+
+  @media (min-width: 300px) and (max-width: 600px) {
+    margin-left: 8%;
+    height: ${theme * 5}%;
+  }
 `
 );
 
@@ -283,27 +289,45 @@ const OrangeLine2 = styled.div(
   border: 1px solid #F58310;
   background: #F58310;
   position: absolute;
+  @media (min-width: 300px) and (max-width: 600px) {
+    margin-left: 8%;
+    height: ${theme * 2.5}%;
+  }
 `
 );
 
 const OrangeLineRight = styled(OrangeLine)`
   margin-left: 38.5%;
   margin-top: -28%;
+  @media (min-width: 300px) and (max-width: 600px) {
+    margin-left: 8%;
+    margin-top: -180%;
+  }
 `;
 const OrangeLineRight2 = styled(OrangeLine)`
   margin-left: 47%;
   margin-top: -16%;
+  @media (min-width: 300px) and (max-width: 600px) {
+    margin-left: 8%;
+    margin-top: -83%;
+    height:20%;
+
+  }
 `;
 
 const OfferDivLeft = styled.div`
   width: 80%;
   margin-left: -24%;
   @media (min-width: 300px) and (max-width: 600px) {
-    margin-left: 10%;
+    margin-left: 18%;
   }
 `;
 
 const OfferDivRight = styled.div`
+  @media (min-width: 300px) and (max-width: 600px) {
+    margin-left: 18%;
+    width: 80%;
+  }
   @media (min-width: 600px) {
     margin-right: -50%;
     margin-left: 24%;
@@ -311,13 +335,17 @@ const OfferDivRight = styled.div`
 `;
 
 const OfferDivRight2 = styled.div`
+ @media (min-width: 300px) and (max-width: 600px) {
+    margin-left: 18%;
+    width:80%;
+  }
   @media (min-width: 600px) {
     margin-left: 6%;
   }
 `;
 const OfferDivRight3 = styled.div`
   width: 80%;
-  margin-left: 10%;
+  margin-left: 18%;
 `;
 
 function Main() {
@@ -352,8 +380,13 @@ function Main() {
           <Bdiv2 />
         </section>
         <Offering>
-          <StyledImg src={window.innerWidth < 600 ? arrow2 : arrow} alt="arrow" width="auto" height="auto" />
-          <StyledUl>
+          <StyledImg
+            src={window.innerWidth < 600 ? arrow2 : arrow}
+            alt="arrow"
+            width="auto"
+            height="auto"
+          />
+          <StyledUl id="our_services">
             {json.main.what_we_offer.map((e: any, i: number) => {
               return (
                 <li key={i}>
@@ -388,7 +421,7 @@ function Main() {
               return (
                 <>
                   <OrangeLine theme={i === 0 ? 9.2 : 8} />
-                  <OfferDivLeft key={i}>
+                  <OfferDivLeft key={i} id={e.href}>
                     <StyledH2> {e.label}</StyledH2>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivLeft>
@@ -398,7 +431,7 @@ function Main() {
               return (
                 <>
                   <OfferDivRight3 key={i}>
-                    <StyledH2Right>
+                    <StyledH2Right id={e.href}>
                       {e.label.includes("<br/>") ? (
                         <>
                           {e.label.split("<br/>")[0]} <br />
@@ -429,8 +462,8 @@ function Main() {
             if (i === 3 || i === 5)
               return (
                 <>
-                  <OrangeLine2 theme={i === 5 ? 9.5 : countOfSymbols} /> 
-                  <OfferDivRight2 key={i}>
+                  <OrangeLine2 theme={i === 5 ? 9.5 : countOfSymbols} />
+                  <OfferDivRight2 key={i} id={e.href}>
                     <StyledH2> {e.label}</StyledH2>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivRight2>
@@ -440,10 +473,10 @@ function Main() {
               return (
                 <>
                   <OfferDivRight key={i}>
-                    <StyledH2Right> {e.label}</StyledH2Right>
+                    <StyledH2Right id={e.href}> {e.label}</StyledH2Right>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivRight>
-                  <OrangeLineRight2 theme={countOfSymbols} /> 
+                  <OrangeLineRight2 theme={countOfSymbols} />
                 </>
               );
             else return null;

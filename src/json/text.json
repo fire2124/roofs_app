@@ -1,8 +1,8 @@
 {
     "header": [
         {
-            "label": "O FIRME",
-            "href": "about_company",
+            "label": "Naše služby",
+            "href": "our_services",
             "child":[
                 {
                     "label": "Hydroizolácie plochých striech, fólie a asfaltové pásy",
@@ -27,9 +27,10 @@
             ]
         },
         {
-            "label": "Naše služby",
-            "href": "our_services"
+            "label": "O FIRME",
+            "href": "about_company"
         },
+       
         {
             "label": "Kontaktujte nás",
             "href": "contact"
@@ -39,35 +40,41 @@
         "h1": "Nová strecha je ďalším bezpečným domovom",
         "label": "Pristupujeme ku každému projektu individuálne",
         "what_we_offer": [
-            {"text":"Hydroizolácie plochých striech, fólie a asfaltové pásy","href":"hydroizolacie"},
-            {"text":"Bežné a atypické klampiarske práce","href":"hydroizolacie"},
-            {"text":"Pokládka rôznych krytín","href":"hydroizolacie"},
-            {"text":"Výroba klampiarskych profilov","href":"hydroizolacie"},
-            {"text":"Stavba krovov","href":"hydroizolacie"}
+            {"text":"Hydroizolácie plochých striech, fólie a asfaltové pásy","href":"#hydro_izolation"},
+            {"text":"Bežné a atypické klampiarske práce","href":"#tinkering_work"},
+            {"text":"Pokládka rôznych krytín","href":"#coverings"},
+            {"text":"Výroba klampiarskych profilov","href":"#trusses"},
+            {"text":"Stavba krovov","href":"#stud_profiles"}
         ],
         "house_text": [
             {
                 "label": "HYDROIZOLÁCIE PLOCHÝCH STRIECH",
+                "href":"hydro_izolation",
                 "text": "Jednou z najdôležitejších vlastností plochej strechy je jej vodotesnosť. Vodotesnosť plochej strechy zaisťuje hydroizolačná vrstva a preto je najdôležitejšou vrstvou. Hydroizolačnú vrstvu pri plochých strechách zabezpečuje povlaková krytina. V súčasnej dobe je na trhu veľmi široká škála povlakových krytín vyrobených z materiálov s najrôznejšími chemickými a fyzikálnymi vlastnosťami."
             },
             {
                 "label": "FÓLIE A <br/> ASFALTOVANÉ PÁSY",
+                "href":"foils",
                 "text": "V posledných rokoch sa stretávame s množstvom rôznych nových dru-hov materiálov, vhodných pre skladbu strešného plášťa plochých striech, ako aj s množstvom rôzneho sortimentu. Či už sú to povlakové fólie na báze mPVC (polyvinylchlorid), TPO fólie (termoplastický olefín), alebo rôzne druhy asfaltovaných pásov. Dôležité je si uvedomiť, že aj najlepší materiál sám o sebe nemusí vždy zabezpečiť optimálny výsle-dok po celú dobu životnosti, kým ich umiestnenie nebude v súlade s ostatnými materiálmi, alebo ich aplikácia nebude správna."
             },
             {
                 "label": "BEŽNÉ A ATYPICKÉ KLAMPIARSKE PRÁCE",
+                "href":"tinkering_work",
                 "text": "Každá rekonštrukcia alebo novostavba si vyžaduje množstvo klampiarskych prvkov, či už sú to rôzne odvodňovacie prvky, atikové plechy, rôzne oplechovania, kryty a pod. Na plochých strechách nie je výnimkou, že každá strecha obsahuje klampiarske prvky  ktoré sú atypické a nie je ich možné kúpiť v predajni."
             },
             {
                 "label": "POKLÁDKA RÔZNYCH KRYTÍN",
+                "href":"coverings",
                 "text": "V súčastnosti sa využívajú rôzne druhy krovov, či už ide o pultovú, sedlovú, valbovú, polvalbovú, manzardovú a pod. Naša firma realizuje rôzne druhy krovov a samozrejme aj pokládku rôznych strešných krytín."
             },
             {
                 "label": "STAVBA KROVOV",
+                "href":"trusses",
                 "text": "V súčastnosti sa využívajú rôzne druhy krovov, či už ide o pultovú, sedlovú, valbovú, polvalbovú, manzardovú a pod. Naša firma realizuje rôzne druhy krovov a samozrejme aj pokládku rôznych strešných krytín."
             },
             {
                 "label": "VÝROBA KLAMPIARSKYCH PROFILOV",
+                "href":"stud_profiles",
                 "text": "Naša firma disponuje vlastnou ohýbačkou a tiež nožnicami kde sa tieto atypické prvky vyrábajú."
             }
         ],

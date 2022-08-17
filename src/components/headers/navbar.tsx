@@ -4,7 +4,7 @@ import logo from "../../images/logo.svg";
 
 const StyledNav = styled.nav`
   width: 70%;
-  padding: 5px 20px;
+  padding: 5px 20px 20px;
   display: flex;
   justify-content: space-between;
   .logo {

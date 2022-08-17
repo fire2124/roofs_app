@@ -1,22 +1,6 @@
 import styled from "styled-components";
 import json from "../../json/text.json";
 
-const StyledA = styled.a`
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 25px;
-  letter-spacing: 0.035em;
-  font-variant: small-caps;
-  font-feature-settings: 'pnum' on, 'lnum' on, 'case' on;
-  color: #ffffff;
-  text-decoration: none;
-  margin-left: 0.1%;
-  display: flex;
-  white-space: nowrap;
-`;
-
 const Ul = styled.ul`
   list-style: none;
   display: flex;
@@ -46,17 +30,41 @@ const StyledLi = styled.li`
     margin-top: 3%;
 `;
 
+const StyledA = styled.a`
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0.035em;
+  font-variant: small-caps;
+  font-feature-settings: 'pnum' on, 'lnum' on, 'case' on;
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 0.1%;
+  display: flex;
+  white-space: nowrap;
+`;
+
 const StyledA2 = styled(StyledA)`
     color: #F79532 !important;
 `
-const StyledA3 = styled(StyledA)`
-    white-space:  normal !important;
 
+const StyledA3 = styled(StyledA)`
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  font-variant: normal;
+  font-feature-settings: 'case' on;
+  white-space:  normal !important;
 `
 
 const StyledUl = styled.ul`
   list-style: none;
-
+  margin-top: 10%;
+  margin-left: -44%;
 `
 const StyledLi2 = styled.li`
     margin-left: 10%;
@@ -73,15 +81,15 @@ const RightNav = ({ open }) => {
         return (
           <StyledLi key={index}>
             {index === 2 ?
-              <StyledA2 href={e.href} key={index}>
+              <StyledA2 href={`#${e.href}`} key={index}>
                 {e.label}
               </StyledA2> :
-              <StyledA href={e.href} key={index}>
+              <StyledA href={`#${e.href}`} key={index}>
                 {e.label}
                 {open === true && window.innerWidth < 768 ? <StyledUl>
                   {e.child ? e.child.map((child, index2) =>
                     <StyledLi2 key={index}>
-                      <StyledA3 href={child.href} key={index2}>
+                      <StyledA3 href={`#${child.href}`} key={index2}>
                         {child.label}
                       </StyledA3>
                     </StyledLi2>) : null}
