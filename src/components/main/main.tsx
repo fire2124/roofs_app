@@ -100,7 +100,6 @@ const MainBackground = styled.article``;
 
 const Bdiv = styled.div(
   ({ theme }) => `
-
   @media (min-width: ${mobileMax}px) and (max-width: 980px) {
     width: 0;
     height: 0;
@@ -134,12 +133,20 @@ const Bdiv = styled.div(
 
 const Bdiv2 = styled.div(
   ({ theme }) => `
-  @media (min-width: ${mobileMax}px) {
+  @media (min-width: ${mobileMax}px) and (max-width: 853px){
+    width: 0;
+    height: 0;
+    margin-top:100%;
+    border-top: 300px solid transparent;
+    border-bottom: ${1900}px solid #32323f;
+    border-left: ${theme * 0.838}px solid transparent;
+  }
+  @media (min-width: 980px) and (max-width: 1333px){
     width: 0;
     height: 0;
     border-top: 300px solid transparent;
     border-bottom: ${1900}px solid #32323f;
-    border-left: ${theme * 0.984}px solid transparent;
+    border-left: ${theme * 0.805}px solid transparent;
   }
 `
 );
@@ -204,10 +211,13 @@ const DarkBlueImg = styled.section`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     position: static;
   }
-  @media (min-width: ${mobileMax}px) {
-    width: 595px;
+  @media (min-width: ${mobileMax}px) and (max-width: 1000px) {
+    width: 100%;
     background: #32323f;
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+  @media (min-width: 1000px) and (max-width: 900px) {
+    width: 80%;
   }
 `;
 const DarkBlueImg2 = styled.section`
@@ -239,12 +249,26 @@ const FlexArticle = styled.article`
   @media (min-width: 300px) {
     position: static;
   }
-  @media (min-width: ${mobileMax}px) {
+  @media (min-width: ${mobileMax}px) and (max-width: 850px) {
+    position: static;
+    z-index: 2;
+    align-items: center;
+    margin-top: -450%;
+  }
+
+  @media (min-width: 851px) and (max-width: 1000px) {
+    position: static;
+    z-index: 2;
+    align-items: center;
+    margin-top: -75%;
+  }
+
+  @media (min-width: 1600px) {
     position: absolute;
     z-index: 2;
     display: flex;
     align-items: center;
-    top: 170%;
+    top: 135%;
     left: 50%;
     margin-right: -30%;
     transform: translate(-50%, -50%);
@@ -258,9 +282,6 @@ const FlexArticle2 = styled(FlexArticle)`
     flex-direction: column-reverse;
     margin-top: -4%;
   }
-  @media (min-width: ${mobileMax}px) {
-    top: 290%;
-  }
 `;
 const StyledSectionRight = styled.section`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
@@ -269,8 +290,9 @@ const StyledSectionRight = styled.section`
   }
   @media (min-width: ${mobileMax}px) {
     background: none;
-    top: 290%;
-    margin-left: 20%;
+  }
+  @media (min-width: ${mobileMax}px) and (max-width: 1000px) {
+    width: 92%;
   }
 `;
 const StyledSectionLeft = styled.section`
@@ -299,7 +321,7 @@ const StyledH2 = styled.h2`
 
 const StyledH2Right = styled(StyledH2)`
   text-align: right;
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+  @media (min-width: 300px) and (max-width: 1000px) {
     text-align: left;
   }
 `;
@@ -362,6 +384,10 @@ const OrangeLineRight = styled(OrangeLine)`
     margin-top: 8%;
     width: 1px;
   }
+  @media (min-width: ${mobileMax+1}px) and (max-width: 1000px) {
+    margin-left: 5%;
+
+  }
 `;
 const OrangeLineRight2 = styled(OrangeLine)`
   margin-left: 42%;
@@ -387,6 +413,11 @@ const OfferDivLeft = styled.div`
 const OfferDivRight = styled.div`
   width: 80%;
   margin-left: 10%;
+  @media (min-width: 840px) {
+
+  width: 100%;
+    margin-left: 6%;
+  }
 `;
 
 const OfferDivRight2 = styled.div`
@@ -409,7 +440,7 @@ const StyledOfferDiv = styled.div`
 `;
 
 const StyledImg2 = styled.img`
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+  @media (min-width: 300px) and (max-width: 1349px) {
     width: 100%;
   }
 `;
@@ -446,8 +477,6 @@ function Main() {
     setHeight(value);
   }, []);
 
-
-
   return (
     <>
       <MainImg />
@@ -473,7 +502,10 @@ function Main() {
           </StyledPadding>
         </SectionFlex>
         <Offering
-          theme={{ width: width, percent: percentageFunction(percentageArray, width) }}
+          theme={{
+            width: width,
+            percent: percentageFunction(percentageArray, width),
+          }}
         >
           <StyledImg
             src={width < mobileMax ? images.arrow2 : images.arrow}
@@ -500,10 +532,10 @@ function Main() {
           <Bdiv2 theme={width} />
         </section>
       </MainBackground>
-      {/* <FlexArticle>
+      <FlexArticle>
         <DarkBlueImg>
           <StyledImg2
-            src={width < mobileMax ? images.house1_small : images.house1}
+            src={width < 1349 ? images.house1_small : images.house1}
             alt="house1"
             height="100%"
           />
@@ -543,7 +575,7 @@ function Main() {
             else return null;
           })}{" "}
         </StyledSectionRight>
-      </FlexArticle> */}
+      </FlexArticle>
       {/* <FlexArticle2>
         <StyledSectionLeft>
           {json.main.house_text.map((e: any, i: number) => {
