@@ -1,15 +1,9 @@
-import {useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import json from "../../json/text.json";
 import styled from "styled-components";
-import image_header from "../../images/image_header.svg";
-import house1 from "../../images/house1.png";
-import house1_small from "../../images/house1_small.svg";
-import house2 from "../../images/house2.png";
-import house2_small from "../../images/house2_small.svg";
-import arrow from "../../images/arrow.svg";
-import arrow2 from "../../images/arrow2.svg";
-import strecha from "../../images/strecha.svg";
-import { mobileMax } from "../responsiveness";
+import images from "../images";
+import { mobileMax, percentageArray } from "../responsiveness";
+import { percentageFunction } from "../../services/helper";
 
 const StyledImg = styled.img`
   position: absolute;
@@ -19,34 +13,42 @@ const StyledImg = styled.img`
     position: static;
   }
 `;
-const MainSectionOne = styled.div`
+const MainArticle = styled.article`
   height: 100%;
   width: 100%;
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
-    margin-top: 0;
-    margin-left: 5%;
-    padding: 0;
-    width: 95%;
+  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
+    margin-top: -5%;
+  }
+  @media (min-width: ${mobileMax}px) {
+    margin-top: 1%;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `;
 
 const MainImg = styled.div`
-  background: url(${image_header}) no-repeat;
+  background: url(${images.image_header}) no-repeat;
   height: 100%;
   width: 100%;
 
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+  @media (min-width: 300px) and (max-width: 434px) {
     position: static;
-    background: url(${strecha}) no-repeat;
+    background: url(${images.strecha}) no-repeat;
     height: 253px;
   }
-  @media (min-width: ${mobileMax}px) {
-    position: absolute;
+
+  @media (min-width: 434px) {
+    height: 343px;
+    width: 100%;
+    position: static;
+    background-position: 33% 237%;
+    transform: scale(1, 1);
     z-index: 11;
   }
 `;
 
-const Flex = styled.div`
+const SectionFlex = styled.section`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     width: 90%;
     position: static;
@@ -56,10 +58,11 @@ const Flex = styled.div`
   @media (min-width: ${mobileMax}px) {
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 80%;
+    position: relative;
+    z-index: 10;
+    /* top: 80%;
     left: 27.5%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
   }
 `;
 const WhiteH1 = styled.h1`
@@ -93,49 +96,71 @@ const WhiteSmallLabel = styled.p`
   color: #ffffff;
 `;
 
-const MainBackground = styled.article`
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
-    background: #e2dfdc;
-  }
-  @media (min-width: ${mobileMax}px) {
-    margin-top: 1%;
-    z-index: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-`;
+const MainBackground = styled.article``;
 
 const Bdiv = styled.div(
-  ({ theme }) =>`
-  @media (min-width: ${mobileMax}px) {
+  ({ theme }) => `
+
+  @media (min-width: ${mobileMax}px) and (max-width: 980px) {
     width: 0;
     height: 0;
     border-top: 1605px solid #32323f;
-    border-right: ${theme*0.984}px solid transparent;
-    margin-top: -2.5%;
+    border-right: ${theme * 0.723}px solid transparent;
+    margin-top: -92.5%;
   }
-`);
+  @media (min-width: 980px) and (max-width: 1333px) {
+    width: 0;
+    height: 0;
+    border-top: 1605px solid #32323f;
+    border-right: ${theme * 0.75735}px solid transparent;
+    margin-top: -70.5%;
+  }
+  @media (min-width: 1333px) and (max-width: 1600px) {
+    width: 0;
+    height: 0;
+    border-top: 2205px solid #32323f;
+    border-right: ${theme * 0.77}px solid transparent;
+    margin-top: -71%;
+  }
+  @media (min-width: 1600px) {
+    width: 0;
+    height: 0;
+    border-top: 2205px solid #32323f;
+    border-right: ${theme * 0.77}px solid transparent;
+    margin-top: -50%;
+  }
+`
+);
 
 const Bdiv2 = styled.div(
-  ({ theme }) =>`
+  ({ theme }) => `
   @media (min-width: ${mobileMax}px) {
     width: 0;
     height: 0;
     border-top: 300px solid transparent;
     border-bottom: ${1900}px solid #32323f;
-    border-left: ${theme*0.984}px solid transparent;
+    border-left: ${theme * 0.984}px solid transparent;
   }
-`);
+`
+);
 
-const Offering = styled.section`
+const Offering = styled.section(
+  ({ theme }) => `
   margin-left: 33%;
   margin-top: 4%;
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    background: #e2dfdc;
+    width: 100%;
     display: flex;
-    width: 80%;
-    margin-left: 8%;
+    margin-left: 0%;
   }
-`;
+  @media (min-width: ${mobileMax}px) and (max-width: 1920px) {
+    margin-top: ${theme.width * theme.percent}%;
+    margin-left: 13%;
+    padding: 10%;
+    }
+`
+);
 
 const OfferingA = styled.a`
   font-family: "Noto Sans";
@@ -148,17 +173,33 @@ const OfferingA = styled.a`
 
   font-feature-settings: "pnum" on, "lnum" on, "case" on;
   color: #242424;
-  position: relative;
+  position: static;
   z-index: 2;
 `;
 
 const StyledUl = styled.ul`
   list-style-type: none;
   @media (min-width: ${mobileMax}px) {
-    margin-top: 80%;
+    margin-top: 0%;
   }
 `;
 
+const StyledLi = styled.li`
+  @media (min-width: ${mobileMax}px) {
+    margin-top: 3%;
+  }
+`;
+const StyledPadding = styled.div`
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    padding: 0% 5% 0% 5%;
+  }
+  @media (min-width: ${mobileMax}px) and (max-width: 1600px) {
+    padding-left: 5%;
+  }
+  @media (min-width: 1600px) {
+    padding-left: 22%;
+  }
+`;
 const DarkBlueImg = styled.section`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     position: static;
@@ -276,89 +317,82 @@ const StyledP = styled.p`
 
 const OrangeLine = styled.div(
   ({ theme }) => `
-  height: ${theme * 3}%;
+  height: ${theme * 0.85}px;
   width: 0.001px;
-  margin-left: -12%;
-  margin-top: 2.5%;
+  margin-top: 4%;
   border: 1px solid #F58310;
   background: #F58310;
   position: absolute;
 
-  @media (min-width: 300px) and (max-width:${mobileMax}px) {
+ @media (min-width: 300px) and (max-width:${mobileMax}px) {
     position: static;
     margin-left: 12%;
     margin-top: 8%;
     width: 1px;
-    
-    height:${theme * 30}px;
+    height: ${theme * 0.8}px;
   }
 `
 );
 
 const OrangeLine2 = styled.div(
   ({ theme }) => `
-  height: ${theme * 3}%;
+  height: ${theme * 0.85}px;
   width: 0.001px;
-  margin-top: 4.5%;
+  margin-top: 4%;
   border: 1px solid #F58310;
   background: #F58310;
   position: absolute;
-  @media (min-width: 300px) and (max-width:${mobileMax}px) {
-    margin-left: 8%;
-    height: ${theme * 2.5}%;
+
+ @media (min-width: 300px) and (max-width:${mobileMax}px) {
+    position: static;
+    margin-left: 12%;
+    margin-top: 8%;
+    width: 1px;
+    height: ${theme * 0.8}px;
   }
 `
 );
 
 const OrangeLineRight = styled(OrangeLine)`
-  margin-left: 38.5%;
-  margin-top: -28%;
+  margin-left: 42%;
+  margin-top: 4%;
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     position: static;
-    margin-left: -131%;
-    margin-top: 48%;
-    width: 90%;
-    transform: rotate(90deg);
-    height: 0%;
+    margin-left: 12%;
+    margin-top: 8%;
+    width: 1px;
   }
 `;
 const OrangeLineRight2 = styled(OrangeLine)`
-  margin-left: 47%;
-  margin-top: -16%;
+  margin-left: 42%;
+  margin-top: 4%;
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     position: static;
-    margin-left: -131%;
-    margin-top: 48%;
-    width: 88%;
-    transform: rotate(90deg);
-    height: 0%;
+    margin-left: 12%;
+    margin-top: 8%;
+    width: 1px;
   }
 `;
 
 const OfferDivLeft = styled.div`
-  width: 80%;
-  margin-left: -24%;
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
-    width: 74%;
-    margin-left: 7%;
+    margin-left: 10%;
+    width: 80%;
+  }
+  @media (min-width: ${mobileMax}px) {
+    margin-left: 6%;
   }
 `;
 
 const OfferDivRight = styled.div`
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
-    margin-left: 18%;
-    width: 80%;
-  }
-  @media (min-width: ${mobileMax}px) {
-    margin-right: -50%;
-    margin-left: 24%;
-  }
+  width: 80%;
+  margin-left: 10%;
 `;
 
 const OfferDivRight2 = styled.div`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
-    margin-left: 18%;
-    width: 100%;
+    margin-left: 10%;
+    width: 80%;
   }
   @media (min-width: ${mobileMax}px) {
     margin-left: 6%;
@@ -366,10 +400,10 @@ const OfferDivRight2 = styled.div`
 `;
 const OfferDivRight3 = styled.div`
   width: 80%;
-  margin-left: 18%;
+  margin-left: 10%;
 `;
 
-const StyledFlex2 = styled.div`
+const StyledOfferDiv = styled.div`
   display: flex;
   flex: 0 1 auto;
 `;
@@ -378,28 +412,48 @@ const StyledImg2 = styled.img`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     width: 100%;
   }
-`
+`;
+
+const StyledOfferDiv2 = styled(StyledOfferDiv)`
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+`;
 
 function Main() {
-  const [width,setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState([] as any);
 
   useEffect(() => {
-     function handleResize (){
-      setWidth(window.innerWidth)
-      // let elHeight = document.getElementById('hydro_izolation').clientHeight
-      // console.log(elHeight)
+    function handleResize() {
+      setWidth(window.innerWidth);
     }
     window.addEventListener("resize", handleResize);
   });
 
- 
+  useEffect(() => {
+    const value = json.main.house_text.map((e: any) => {
+      const value =
+        document.getElementById(e.href) !== undefined &&
+        document.getElementById(e.href) !== null
+          ? document.getElementById(e.href)
+          : null;
+      if (value !== null) {
+        return value.clientHeight;
+      } else return null;
+    });
+    setHeight(value);
+  }, []);
+
+
 
   return (
     <>
       <MainImg />
-      <MainSectionOne>
-        <Flex>
-          <div>
+      <MainArticle>
+        <SectionFlex>
+          <StyledPadding>
             <WhiteH1>
               {json.main.h1.split(" ").map((e: any, index: number) => {
                 if (index < 3) return `${e} `;
@@ -416,17 +470,13 @@ function Main() {
               <OrangeH1>{json.main.h1.split(" ")[5]}</OrangeH1>
             </WhiteH1>
             <WhiteSmallLabel>{json.main.label}</WhiteSmallLabel>
-          </div>
-        </Flex>
-      </MainSectionOne>
-      <MainBackground>
-        <section>
-          <Bdiv theme={width}/>
-          <Bdiv2 theme={width}/>
-        </section>
-        <Offering>
+          </StyledPadding>
+        </SectionFlex>
+        <Offering
+          theme={{ width: width, percent: percentageFunction(percentageArray, width) }}
+        >
           <StyledImg
-            src={width < mobileMax ? arrow2 : arrow}
+            src={width < mobileMax ? images.arrow2 : images.arrow}
             alt="arrow"
             width="auto"
             height="auto"
@@ -434,20 +484,26 @@ function Main() {
           <StyledUl id="our_services">
             {json.main.what_we_offer.map((e: any, i: number) => {
               return (
-                <li key={i}>
+                <StyledLi key={i}>
                   <OfferingA href={e.href} key={i}>
                     {e.text}
                   </OfferingA>
-                </li>
+                </StyledLi>
               );
             })}{" "}
           </StyledUl>
         </Offering>
+      </MainArticle>
+      <MainBackground>
+        <section>
+          <Bdiv theme={width} />
+          <Bdiv2 theme={width} />
+        </section>
       </MainBackground>
-      <FlexArticle>
+      {/* <FlexArticle>
         <DarkBlueImg>
           <StyledImg2
-            src={width < mobileMax ? house1_small : house1}
+            src={width < mobileMax ? images.house1_small : images.house1}
             alt="house1"
             height="100%"
           />
@@ -455,27 +511,21 @@ function Main() {
         </DarkBlueImg>
         <StyledSectionRight>
           {json.main.house_text.map((e: any, i: number) => {
-            const countOfSymbols = e.text
-              .split(".")
-              .map((e: any) => {
-                return e.split(",").length;
-              })
-              .reduce((a: number, b: number) => a + b, 0);
             if (i === 0 || i === 2)
               return (
-                <StyledFlex2>
-                  <OrangeLine theme={i === 0 ? 9.2 : 8} />
-                  <OfferDivLeft key={i} id={e.href}>
+                <StyledOfferDiv id={e.href}>
+                  <OrangeLine theme={height[i]} />
+                  <OfferDivLeft key={i}>
                     <StyledH2> {e.label}</StyledH2>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivLeft>
-                </StyledFlex2>
+                </StyledOfferDiv>
               );
             else if (i === 1)
               return (
-                <StyledFlex2>
-                  <OfferDivRight3 key={i}>
-                    <StyledH2Right id={e.href}>
+                <StyledOfferDiv2 id={e.href}>
+                  <OfferDivRight key={i}>
+                    <StyledH2Right>
                       {e.label.includes("<br/>") ? (
                         <>
                           {e.label.split("<br/>")[0]} <br />
@@ -486,56 +536,50 @@ function Main() {
                       )}
                     </StyledH2Right>
                     <StyledP> {e.text}</StyledP>
-                  </OfferDivRight3>
-                  <OrangeLineRight theme={countOfSymbols} />
-                </StyledFlex2>
+                  </OfferDivRight>
+                  <OrangeLineRight theme={height[i]} />
+                </StyledOfferDiv2>
               );
             else return null;
           })}{" "}
         </StyledSectionRight>
-      </FlexArticle>
-      <FlexArticle2>
+      </FlexArticle> */}
+      {/* <FlexArticle2>
         <StyledSectionLeft>
           {json.main.house_text.map((e: any, i: number) => {
-            const countOfSymbols = e.text
-              .split(".")
-              .map((e: any) => {
-                return e.split(",").length;
-              })
-              .reduce((a: number, b: number) => a + b, 0);
             if (i === 3 || i === 5)
               return (
-                <StyledFlex2>
-                  <OrangeLine2 theme={i === 5 ? 9.5 : countOfSymbols} />
-                  <OfferDivRight2 key={i} id={e.href}>
+                <StyledOfferDiv id={e.href}>
+                  <OrangeLine2 theme={height[i]} />
+                  <OfferDivRight2 key={i}>
                     <StyledH2> {e.label}</StyledH2>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivRight2>
-                </StyledFlex2>
+                </StyledOfferDiv>
               );
             else if (i === 4)
               return (
-                <StyledFlex2>
-                  <OfferDivRight key={i}>
-                    <StyledH2Right id={e.href}> {e.label}</StyledH2Right>
+                <StyledOfferDiv2 id={e.href}>
+                  <OfferDivRight3 key={i}>
+                    <StyledH2Right> {e.label}</StyledH2Right>
                     <StyledP> {e.text}</StyledP>
-                  </OfferDivRight>
-                  <OrangeLineRight2 theme={countOfSymbols} />
-                </StyledFlex2>
+                  </OfferDivRight3>
+                  <OrangeLineRight2 theme={height[i]} />
+                </StyledOfferDiv2>
               );
             else return null;
           })}
         </StyledSectionLeft>
         <DarkBlueImg2>
           <img
-            src={width < mobileMax ? house2_small : house2}
+            src={width < mobileMax ? images.house2_small : images.house2}
             alt="house2"
             width="100%"
             height="100%"
           />
           <WhiteSmallText>{json.main.pictures_label[1]}</WhiteSmallText>
         </DarkBlueImg2>
-      </FlexArticle2>
+      </FlexArticle2> */}
     </>
   );
 }

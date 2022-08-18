@@ -29,9 +29,9 @@ function App() {
       <BackgroundSection>
         <Main />
         {/* <Gallery /> */}
-        <About />
+        {/* <About /> */}
       </BackgroundSection>
-      <Footer />
+      {/* <Footer /> */}
     </Background>
   );
 }
