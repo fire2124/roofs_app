@@ -11,6 +11,7 @@ const StyledImg = styled.img`
   margin-top: 1.5%;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     position: static;
+    margin-left: 10%;
   }
 `;
 const MainArticle = styled.article`
@@ -60,11 +61,9 @@ const SectionFlex = styled.section`
     align-items: center;
     position: relative;
     z-index: 10;
-    /* top: 80%;
-    left: 27.5%;
-    transform: translate(-50%, -50%); */
   }
 `;
+
 const WhiteH1 = styled.h1`
   font-family: "Arya";
   font-style: normal;
@@ -95,8 +94,6 @@ const WhiteSmallLabel = styled.p`
   font-feature-settings: "pnum" on, "lnum" on, "case" on;
   color: #ffffff;
 `;
-
-const MainBackground = styled.article``;
 
 const Bdiv = styled.div(
   ({ theme }) => `
@@ -133,7 +130,7 @@ const Bdiv = styled.div(
 
 const Bdiv2 = styled.div(
   ({ theme }) => `
-  @media (min-width: ${mobileMax}px) and (max-width: 853px){
+  @media (min-width: ${mobileMax}px) and (max-width: 878px){
     width: 0;
     height: 0;
     margin-top:100%;
@@ -141,12 +138,12 @@ const Bdiv2 = styled.div(
     border-bottom: ${1900}px solid #32323f;
     border-left: ${theme * 0.838}px solid transparent;
   }
-  @media (min-width: 980px) and (max-width: 1333px){
+  @media (min-width: 1200px) {
     width: 0;
     height: 0;
     border-top: 300px solid transparent;
     border-bottom: ${1900}px solid #32323f;
-    border-left: ${theme * 0.805}px solid transparent;
+    border-left: ${theme * 0.991}px solid transparent;
   }
 `
 );
@@ -207,26 +204,28 @@ const StyledPadding = styled.div`
     padding-left: 22%;
   }
 `;
+
 const DarkBlueImg = styled.section`
+  background: #32323f;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     position: static;
   }
   @media (min-width: ${mobileMax}px) and (max-width: 1000px) {
     width: 100%;
-    background: #32323f;
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   }
   @media (min-width: 1000px) and (max-width: 900px) {
     width: 80%;
   }
 `;
+
 const DarkBlueImg2 = styled.section`
   background: #32323f;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
   @media (min-width: ${mobileMax}px) {
     width: 595px;
-    margin-left: 29%;
   }
 `;
 const WhiteSmallText = styled.p`
@@ -246,19 +245,20 @@ const WhiteSmallText = styled.p`
 `;
 
 const FlexArticle = styled.article`
-  @media (min-width: 300px) {
-    position: static;
-  }
+  position: static;
+  z-index: 2;
+
   @media (min-width: ${mobileMax}px) and (max-width: 850px) {
-    position: static;
-    z-index: 2;
     align-items: center;
     margin-top: -450%;
   }
 
-  @media (min-width: 851px) and (max-width: 1000px) {
-    position: static;
-    z-index: 2;
+  @media (min-width: 851px) and (max-width: 1095px) {
+    align-items: center;
+    margin-top: -75%;
+  }
+
+  @media (min-width: 1096px) and (max-width: 1600px) {
     align-items: center;
     margin-top: -75%;
   }
@@ -268,7 +268,7 @@ const FlexArticle = styled.article`
     z-index: 2;
     display: flex;
     align-items: center;
-    top: 135%;
+    margin-top: -35%;
     left: 50%;
     margin-right: -30%;
     transform: translate(-50%, -50%);
@@ -282,6 +282,15 @@ const FlexArticle2 = styled(FlexArticle)`
     flex-direction: column-reverse;
     margin-top: -4%;
   }
+  @media (min-width: 1600px) {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    margin-top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 `;
 const StyledSectionRight = styled.section`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
@@ -301,7 +310,8 @@ const StyledSectionLeft = styled.section`
   }
 
   @media (min-width: ${mobileMax}px) {
-    width: 30%;
+    width: 32%;
+    padding-left: 18%;
   }
 `;
 const StyledH2 = styled.h2`
@@ -321,8 +331,11 @@ const StyledH2 = styled.h2`
 
 const StyledH2Right = styled(StyledH2)`
   text-align: right;
-  @media (min-width: 300px) and (max-width: 1000px) {
+  @media (min-width: 300px) and (max-width: 1080px) {
     text-align: left;
+  }
+  @media (min-width: 1080px) {
+    padding: 0% 5% 0% 5%;
   }
 `;
 
@@ -335,6 +348,7 @@ const StyledP = styled.p`
   font-feature-settings: "pnum" on, "lnum" on, "case" on, "ss01" on, "ss02" on,
     "ss03" on, "ss04" on, "ss05" on, "ss18" on, "ss19" on;
   color: #000000;
+  width: 95%;
 `;
 
 const OrangeLine = styled.div(
@@ -346,7 +360,7 @@ const OrangeLine = styled.div(
   background: #F58310;
   position: absolute;
 
- @media (min-width: 300px) and (max-width:${mobileMax}px) {
+ @media (min-width: 300px) and (max-width:1080px) {
     position: static;
     margin-left: 12%;
     margin-top: 8%;
@@ -355,53 +369,9 @@ const OrangeLine = styled.div(
   }
 `
 );
-
-const OrangeLine2 = styled.div(
-  ({ theme }) => `
-  height: ${theme * 0.85}px;
-  width: 0.001px;
-  margin-top: 4%;
-  border: 1px solid #F58310;
-  background: #F58310;
-  position: absolute;
-
- @media (min-width: 300px) and (max-width:${mobileMax}px) {
-    position: static;
-    margin-left: 12%;
-    margin-top: 8%;
-    width: 1px;
-    height: ${theme * 0.8}px;
-  }
-`
-);
-
-const OrangeLineRight = styled(OrangeLine)`
-  margin-left: 42%;
-  margin-top: 4%;
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
-    position: static;
-    margin-left: 12%;
-    margin-top: 8%;
-    width: 1px;
-  }
-  @media (min-width: ${mobileMax+1}px) and (max-width: 1000px) {
-    margin-left: 5%;
-
-  }
-`;
-const OrangeLineRight2 = styled(OrangeLine)`
-  margin-left: 42%;
-  margin-top: 4%;
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
-    position: static;
-    margin-left: 12%;
-    margin-top: 8%;
-    width: 1px;
-  }
-`;
 
 const OfferDivLeft = styled.div`
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+  @media (min-width: 300px) and (max-width: 1080px) {
     margin-left: 10%;
     width: 80%;
   }
@@ -411,42 +381,31 @@ const OfferDivLeft = styled.div`
 `;
 
 const OfferDivRight = styled.div`
-  width: 80%;
-  margin-left: 10%;
-  @media (min-width: 840px) {
-
-  width: 100%;
-    margin-left: 6%;
-  }
-`;
-
-const OfferDivRight2 = styled.div`
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
-    margin-left: 10%;
+  @media (min-width: 300px) and (max-width: 1080px) {
     width: 80%;
+    margin-left: 10%;
   }
   @media (min-width: ${mobileMax}px) {
     margin-left: 6%;
   }
 `;
-const OfferDivRight3 = styled.div`
-  width: 80%;
-  margin-left: 10%;
-`;
 
 const StyledOfferDiv = styled.div`
   display: flex;
   flex: 0 1 auto;
+  @media (min-width: 1080px) {
+    padding: 0% 5% 0% 5%;
+  }
 `;
 
 const StyledImg2 = styled.img`
-  @media (min-width: 300px) and (max-width: 1349px) {
+  @media (min-width: 300px) and (max-width: 1600px) {
     width: 100%;
   }
 `;
 
 const StyledOfferDiv2 = styled(StyledOfferDiv)`
-  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+  @media (min-width: 1080px) {
     display: flex;
     flex-direction: row-reverse;
   }
@@ -526,16 +485,11 @@ function Main() {
           </StyledUl>
         </Offering>
       </MainArticle>
-      <MainBackground>
-        <section>
-          <Bdiv theme={width} />
-          <Bdiv2 theme={width} />
-        </section>
-      </MainBackground>
+      <Bdiv theme={width} />
       <FlexArticle>
         <DarkBlueImg>
           <StyledImg2
-            src={width < 1349 ? images.house1_small : images.house1}
+            src={width < 1600 ? images.house1_small : images.house1}
             alt="house1"
             height="100%"
           />
@@ -556,6 +510,7 @@ function Main() {
             else if (i === 1)
               return (
                 <StyledOfferDiv2 id={e.href}>
+                  <OrangeLine theme={height[i]} />
                   <OfferDivRight key={i}>
                     <StyledH2Right>
                       {e.label.includes("<br/>") ? (
@@ -569,7 +524,6 @@ function Main() {
                     </StyledH2Right>
                     <StyledP> {e.text}</StyledP>
                   </OfferDivRight>
-                  <OrangeLineRight theme={height[i]} />
                 </StyledOfferDiv2>
               );
             else return null;
@@ -582,21 +536,30 @@ function Main() {
             if (i === 3 || i === 5)
               return (
                 <StyledOfferDiv id={e.href}>
-                  <OrangeLine2 theme={height[i]} />
-                  <OfferDivRight2 key={i}>
+                  <OrangeLine theme={height[i]} />
+                  <OfferDivLeft key={i}>
                     <StyledH2> {e.label}</StyledH2>
                     <StyledP> {e.text}</StyledP>
-                  </OfferDivRight2>
+                  </OfferDivLeft>
                 </StyledOfferDiv>
               );
             else if (i === 4)
               return (
                 <StyledOfferDiv2 id={e.href}>
-                  <OfferDivRight3 key={i}>
-                    <StyledH2Right> {e.label}</StyledH2Right>
+                  <OrangeLine theme={height[i]} />
+                  <OfferDivRight key={i}>
+                    <StyledH2Right>
+                      {e.label.includes("<br/>") ? (
+                        <>
+                          {e.label.split("<br/>")[0]} <br />
+                          {e.label.split("<br/>")[1]}
+                        </>
+                      ) : (
+                        e.label
+                      )}
+                    </StyledH2Right>
                     <StyledP> {e.text}</StyledP>
-                  </OfferDivRight3>
-                  <OrangeLineRight2 theme={height[i]} />
+                  </OfferDivRight>
                 </StyledOfferDiv2>
               );
             else return null;
@@ -612,6 +575,7 @@ function Main() {
           <WhiteSmallText>{json.main.pictures_label[1]}</WhiteSmallText>
         </DarkBlueImg2>
       </FlexArticle2> */}
+      <Bdiv2 theme={width} />
     </>
   );
 }
