@@ -14,7 +14,7 @@ const Background = styled.div`
   }
 `;
 
-const BackgroundSection = styled.section`
+const BackgroundSection = styled.main`
   background: #e2dfdc;
 
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
@@ -29,7 +29,7 @@ function App() {
       <BackgroundSection>
         <Main />
         {/* <Gallery /> */}
-        {/* <About /> */}
+        <About />
       </BackgroundSection>
       {/* <Footer /> */}
     </Background>

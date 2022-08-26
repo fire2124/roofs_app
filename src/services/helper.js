@@ -6,3 +6,14 @@ export const percentageFunction = (value, width) => {
         })
         .filter((value) => value !== null)[0];
 };
+
+export const percent = (arrayOfPx, width) => {
+    const output = arrayOfPx
+        .map((e) => {
+            if (width >= e.px && e.max >= width) return { px: e.px, percent: e.percent };
+            else return null
+        })
+        .filter((value) => value !== undefined &&  value !== null)[0];
+    return output
+
+}; 

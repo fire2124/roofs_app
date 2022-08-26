@@ -24,16 +24,23 @@ const StyledText = styled.p`
 `;
 
 const StyledArticle = styled.article`
-  position: absolute;
+  position: relative;
   z-index: 10;
-  margin-top: 100%;
-  padding: 0 10% 0% 10%;
-  width: 45%;
+  margin-top: -4%;
+  width: 100%;
+  background: #32323f;
+  padding-bottom: 5%;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     position: static;
-    width: 80%;
     padding: 0 10% 4% 10%;
-    margin-top: 0%;
+    padding-bottom: 0%;
+  }
+`;
+const StyledAbout = styled.div`
+  width: 45%;
+  padding: 0 10% 0% 10%;
+  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
+    width: 65%;
 
   }
 `;
@@ -61,15 +68,17 @@ const StyledSection = styled.section`
 function About() {
   return (
     <StyledArticle>
-      <OrangeLine theme={28} />
-      <StyledSection>
-        <StyledHeader id="about_company">
-          {json.about_company.header}
-        </StyledHeader>
-        {json.about_company.text.map((e: string, i: number) => {
-          return <StyledText key={i}> {e}</StyledText>;
-        })}
-      </StyledSection>
+      <StyledAbout>
+        <OrangeLine theme={28} />
+        <StyledSection>
+          <StyledHeader id="about_company">
+            {json.about_company.header}
+          </StyledHeader>
+          {json.about_company.text.map((e: string, i: number) => {
+            return <StyledText key={i}> {e}</StyledText>;
+          })}
+        </StyledSection>
+      </StyledAbout>
     </StyledArticle>
   );
 }
