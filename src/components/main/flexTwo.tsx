@@ -235,7 +235,7 @@ const ImageDiv = styled.section`
     grid-column-end: 2;
   }
   @media (min-width: 1600px) {
-    margin-left: 18%;
+    margin-left: 14%;
     margin-top:18%;
 
   }

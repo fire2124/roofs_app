@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import json from "../../json/text.json";
 import styled from "styled-components";
 import images from "../images";
@@ -244,30 +243,8 @@ const Offering = styled.section(
 
 //Offering end
 
-function Main() {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState([] as any);
-
-  useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-  });
-
-  useEffect(() => {
-    const value = json.main.house_text.map((e: any) => {
-      const value =
-        document.getElementById(e.href) !== undefined &&
-        document.getElementById(e.href) !== null
-          ? document.getElementById(e.href)
-          : null;
-      if (value !== null) {
-        return value.clientHeight;
-      } else return null;
-    });
-    setHeight(value);
-  }, []);
+function Main(props: any) {
+  const { width, height } = props;
 
   return (
     <>
@@ -320,9 +297,8 @@ function Main() {
       </MainArticle>
       <Bdiv theme={width} />
       <FlexOne width={width} height={height} />
-      <FlexTwo  width={width} height={height} />
+      <FlexTwo width={width} height={height} />
       <Bdiv2 theme={width} />
-      
     </>
   );
 }
