@@ -5,6 +5,7 @@ import { mobileMax } from "../responsiveness";
 import ArrowRight from "../../assets/arrow_right.svg";
 import ArrowLeft from "../../assets/arrow_left.svg";
 import { photos } from "./photos";
+import { getImages } from "../../services/helper";
 
 const StyledDivUp = styled.div`
   display: grid;
@@ -89,10 +90,20 @@ function Gallery(props: any) {
     setCurrent(0);
   };
 
+  const object = getImages(
+    current,
+    images,
+    width >= 1600 ? 7 : width >= 1200 ? 5 : 3
+  )
+
   return (
     <>
       {arrayOfButtons.map((button: any) => {
-        return <button onClick={()=>setValue(button.number)}>{button.label}</button>;
+        return (
+          <button onClick={() => setValue(button.number)}>
+            {button.label}
+          </button>
+        );
       })}
 
       <StyledDivUp>
@@ -108,7 +119,7 @@ function Gallery(props: any) {
             {images !== null
               ? images.map((slide: any, index: number) => {
                   return (
-                    <div>
+                    <div key={index}>
                       {index === current && (
                         <img
                           src={slide.original}
@@ -135,88 +146,29 @@ function Gallery(props: any) {
         </StyledDiv>
         {width <= mobileMax ? null : (
           <StyledSmallPics>
-            {images &&
-              images.map((slide: any, index: number) => {
-                if (width >= 1600)
-                  if (
-                    index === current ||
-                    (index === current + 1 && current + 2 < images.length) ||
-                    (index === current + 2 && current + 2 < images.length) ||
-                    (index === current + 3 && current + 3 < images.length) ||
-                    (index === current - 1 && current - 1 >= 0) ||
-                    (index === current - 2 && current - 2 >= 0) ||
-                    (index === current - 3 && current - 3 >= 0) ||
-                    (index === current + 4 &&
-                      current + 4 < images.length &&
-                      current + 1 <= 1) ||
-                    (index === current + 5 &&
-                      current + 5 < images.length &&
-                      current + 1 <= 2) ||
-                    (index === current + 6 &&
-                      current + 6 < images.length &&
-                      current + 1 <= 3)
-                  )
-                    return (
-                      <div>
-                        {index === current ? (
-                          <StyledImg
-                            src={slide.original}
-                            alt={slide.alt}
-                            width="160px"
-                            height="110px"
-                            onClick={() => setCurrent(index)}
-                          />
-                        ) : (
-                          <img
-                            src={slide.original}
-                            alt={slide.alt}
-                            width="160px"
-                            height="110px"
-                            onClick={() => setCurrent(index)}
-                          />
-                        )}
-                      </div>
-                    );
-                  else return null;
-                else {
-                  if (
-                    index === current ||
-                    (index === current + 1 && current + 2 < images.length) ||
-                    (index === current + 2 && current + 2 < images.length) ||
-                    (index === current + 3 && current + 3 < images.length) ||
-                    (index === current - 1 && current - 1 >= 0) ||
-                    (index === current - 2 && current - 2 >= 0) ||
-                    (index === current - 3 && current - 3 >= 0) ||
-                    (index === current + 4 &&
-                      current + 4 < images.length &&
-                      current + 1 <= 1) ||
-                    (index === current + 5 &&
-                      current + 5 < images.length &&
-                      current + 1 <= 2)
-                  )
-                    return (
-                      <div>
-                        {index === current ? (
-                          <StyledImg
-                            src={slide.original}
-                            alt={slide.alt}
-                            width="160px"
-                            height="110px"
-                            onClick={() => setCurrent(index)}
-                          />
-                        ) : (
-                          <img
-                            src={slide.original}
-                            alt={slide.alt}
-                            width="160px"
-                            height="110px"
-                            onClick={() => setCurrent(index)}
-                          />
-                        )}
-                      </div>
-                    );
-                  else return null;
-                }
+            {object &&
+              object.together.map((slide: any, index: number) => {
+                return (
+                  <div key={index}>
+                    {index === object.current ? (
+                      <StyledImg
+                        src={slide.original}
+                        alt={slide.alt}
+                        width="160px"
+                        height="110px"
+                        onClick={() => setCurrent(index)}
+                      />
+                    ) : (
+                      <img
+                        src={slide.original}
+                        alt={slide.alt}
+                        width="160px"
+                        height="110px"
+                        onClick={() => setCurrent(index)}
+                      />
+                    )}
+                  </div>
+                );
               })}
           </StyledSmallPics>
         )}

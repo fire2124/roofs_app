@@ -253,9 +253,9 @@ export const FlexOne = (props: any) => {
       {json.main.house_text.map((e: any, i: number) => {
         if (i === 0 || i === 2)
           return (
-            <StyledOfferDiv id={e.href}>
+            <StyledOfferDiv id={e.href} key={i}>
               <OrangeLine theme={props.height[i]} />
-              <OfferDivLeft key={i}>
+              <OfferDivLeft >
                 <StyledH2> {e.label}</StyledH2>
                 <StyledP> {e.text}</StyledP>
               </OfferDivLeft>
@@ -263,9 +263,9 @@ export const FlexOne = (props: any) => {
           );
         else if (i === 1)
           return (
-            <StyledOfferDiv2 id={e.href}>
+            <StyledOfferDiv2 id={e.href} key={i}>
               <OrangeLine2 theme={props.height[i]} />
-              <OfferDivRight key={i}>
+              <OfferDivRight >
                 <StyledH2Right>
                   {e.label.includes("<br/>") ? (
                     <>

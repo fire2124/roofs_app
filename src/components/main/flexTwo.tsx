@@ -187,14 +187,13 @@ const StyledOfferDiv = styled.section`
     padding: 0% 5% 0% 5%;
   }
   @media (min-width: 1336px) {
-    width:80%;
-    height:100%;
-
+    width: 80%;
+    height: 100%;
   }
   @media (min-width: 1536px) {
-    width:70%;
-    height:100%;
-    margin-left:15%;
+    width: 70%;
+    height: 100%;
+    margin-left: 15%;
   }
 `;
 
@@ -212,7 +211,7 @@ const StyledOfferDiv2 = styled(StyledOfferDiv)`
     margin-left: 12% !important;
   }
   @media (min-width: 1600px) {
-    margin-left: 25%  !important;
+    margin-left: 25% !important;
   }
 `;
 
@@ -228,7 +227,7 @@ const ImageDiv = styled.section`
   @media (min-width: 1300px) {
     width: 90%;
     height: 100%;
-    margin-top:20%;
+    margin-top: 20%;
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column-start: 2;
@@ -236,8 +235,7 @@ const ImageDiv = styled.section`
   }
   @media (min-width: 1600px) {
     margin-left: 14%;
-    margin-top:18%;
-
+    margin-top: 18%;
   }
 `;
 
@@ -253,9 +251,9 @@ export const FlexTwo = (props: any) => {
       {json.main.house_text.map((e: any, i: number) => {
         if (i === 3 || i === 5)
           return (
-            <StyledOfferDiv id={e.href}>
+            <StyledOfferDiv id={e.href} key={i}>
               <OrangeLine theme={props.height[i]} />
-              <OfferDivLeft key={i}>
+              <OfferDivLeft>
                 <StyledH2> {e.label}</StyledH2>
                 <StyledP> {e.text}</StyledP>
               </OfferDivLeft>
@@ -263,9 +261,9 @@ export const FlexTwo = (props: any) => {
           );
         else if (i === 4)
           return (
-            <StyledOfferDiv2 id={e.href}>
+            <StyledOfferDiv2 id={e.href} key={i}>
               <OrangeLine2 theme={props.height[i]} />
-              <OfferDivRight key={i}>
+              <OfferDivRight>
                 <StyledH2Right>
                   {e.label.includes("<br/>") ? (
                     <>

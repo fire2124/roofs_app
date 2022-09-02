@@ -286,7 +286,7 @@ function Main(props: any) {
             {json.main.what_we_offer.map((e: any, i: number) => {
               return (
                 <StyledLi key={i}>
-                  <OfferingA href={e.href} key={i}>
+                  <OfferingA href={e.href}>
                     {e.text}
                   </OfferingA>
                 </StyledLi>
