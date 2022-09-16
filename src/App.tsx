@@ -11,7 +11,7 @@ import { mobileMax } from "./components/responsiveness";
 
 const Background = styled.div`
   background: #32323f;
-  height: 4500px;
+  height: 100%;
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     height: 3396px;
   }
@@ -49,15 +49,16 @@ function App() {
     });
     setHeight(value);
   }, []);
+  
   return (
     <Background>
       <Header />
       <BackgroundSection>
         <Main width={width} height={height} />
         <Gallery width={width}/>
-        {/* <About /> */}
+        <About />
+        <Footer />
       </BackgroundSection>
-      {/* <Footer /> */}
     </Background>
   );
 }

@@ -1,8 +1,8 @@
 import json from "../../json/text.json";
 import styled from "styled-components";
 import images from "../images";
-import { mobileMax, percentageArray } from "../responsiveness";
-import { percentageFunction } from "../../services/helper";
+import { mobileMax, FlexOneResponsiveness } from "../responsiveness";
+import { percent } from "../../services/helper";
 
 const FlexArticle = styled.article(
   ({ theme }) => `
@@ -27,7 +27,7 @@ const FlexArticle = styled.article(
   }
 
   @media (min-width: ${theme.px}px) {
-    margin-top: -${theme.percent}%;
+    margin-top: -${theme.percent/10}%;
   }
 
   @media (min-width: 1300px) {
@@ -84,7 +84,7 @@ const WhiteSmallText = styled.p`
   }
 `;
 
-const StyledH2 = styled.h2`
+const StyledPBig = styled.p`
   font-family: "Arya";
   font-style: normal;
   font-weight: 400;
@@ -102,7 +102,7 @@ const StyledH2 = styled.h2`
   }
 `;
 
-const StyledH2Right = styled(StyledH2)`
+const StyledPBigRight = styled(StyledPBig)`
   text-align: right;
   @media (min-width: 300px) and (max-width: 1080px) {
     text-align: left;
@@ -180,6 +180,8 @@ const StyledOfferDiv = styled.section`
   }
   @media (min-width: ${mobileMax}px) and (max-width: 1080px) {
     background: #e2dfdc;
+    grid-row-start: 1;
+
     grid-column-start: 2 !important;
     padding: 12px 0 32px 0;
   }
@@ -205,6 +207,8 @@ const StyledOfferDiv2 = styled(StyledOfferDiv)`
   @media (min-width: 1300px) {
     display: flex;
     flex-direction: row-reverse;
+    grid-column-start: 1 !important;
+    grid-row-start: 2;
     margin-left: 10%;
   }
   @media (min-width: 1500px) {
@@ -215,6 +219,14 @@ const StyledOfferDiv2 = styled(StyledOfferDiv)`
   }
 `;
 
+const StyledOfferDiv3 = styled(StyledOfferDiv)`
+  @media (min-width: 1300px) {
+    background: #e2dfdc;
+    grid-column-start: 1 !important;
+    grid-row-start: 3;
+    padding: 12px 0 32px 0;
+  }
+`;
 const ImageDiv = styled.section`
   @media (min-width: ${mobileMax}px) and (max-width: 1000px) {
     width: 100%;
@@ -229,9 +241,7 @@ const ImageDiv = styled.section`
     height: 100%;
     margin-top: 20%;
     grid-row-start: 1;
-    grid-row-end: 3;
     grid-column-start: 2;
-    grid-column-end: 2;
   }
   @media (min-width: 1600px) {
     margin-left: 14%;
@@ -247,38 +257,53 @@ const OrangeLine2 = styled(OrangeLine)`
 
 export const FlexTwo = (props: any) => {
   return (
-    <FlexArticle>
+    <FlexArticle theme={
+      props.width < mobileMax
+        ? props.width
+        : percent(FlexOneResponsiveness, props.width)
+    }>
       {json.main.house_text.map((e: any, i: number) => {
-        if (i === 3 || i === 5)
-          return (
-            <StyledOfferDiv id={e.href} key={i}>
-              <OrangeLine theme={props.height[i]} />
-              <OfferDivLeft>
-                <StyledH2> {e.label}</StyledH2>
-                <StyledP> {e.text}</StyledP>
-              </OfferDivLeft>
-            </StyledOfferDiv>
-          );
-        else if (i === 4)
-          return (
-            <StyledOfferDiv2 id={e.href} key={i}>
-              <OrangeLine2 theme={props.height[i]} />
-              <OfferDivRight>
-                <StyledH2Right>
-                  {e.label.includes("<br/>") ? (
-                    <>
-                      {e.label.split("<br/>")[0]} <br />
-                      {e.label.split("<br/>")[1]}
-                    </>
-                  ) : (
-                    e.label
-                  )}
-                </StyledH2Right>
-                <StyledP> {e.text}</StyledP>
-              </OfferDivRight>
-            </StyledOfferDiv2>
-          );
-        else return null;
+        switch (i) {
+          case 5:
+            return (
+              <StyledOfferDiv id={e.href} key={i}>
+                <OrangeLine theme={props.height[i]} />
+                <OfferDivLeft>
+                  <StyledPBig> {e.label}</StyledPBig>
+                  <StyledP> {e.text}</StyledP>
+                </OfferDivLeft>
+              </StyledOfferDiv>
+            );
+          case 4:
+            return (
+              <StyledOfferDiv2 id={e.href} key={i}>
+                <OrangeLine2 theme={props.height[i]} />
+                <OfferDivRight>
+                  <StyledPBigRight>
+                    {e.label.includes("<br/>") ? (
+                      <>
+                        {e.label.split("<br/>")[0]} <br />
+                        {e.label.split("<br/>")[1]}
+                      </>
+                    ) : (
+                      e.label
+                    )}
+                  </StyledPBigRight>
+                  <StyledP> {e.text}</StyledP>
+                </OfferDivRight>
+              </StyledOfferDiv2>
+            );
+          case 3:
+            return (
+              <StyledOfferDiv3 id={e.href} key={i}>
+                <OrangeLine theme={props.height[i]} />
+                <OfferDivLeft>
+                  <StyledPBig> {e.label}</StyledPBig>
+                  <StyledP> {e.text}</StyledP>
+                </OfferDivLeft>
+              </StyledOfferDiv3>
+            );
+        }
       })}
       <ImageDiv>
         <DarkBlueImg>

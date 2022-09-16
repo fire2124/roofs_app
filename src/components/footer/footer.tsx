@@ -45,21 +45,15 @@ const StyledTextA = styled.a`
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     text-align: left;
   }
-
 `;
 
 const StykedFooter = styled.footer`
+  background: #32323f;
+  position: relative;
+  padding-top: 1%;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
-    background: #32323f;
-    position: static;
+    position: relative;
     width: 80%;
-    padding: 2px 10% 4% 10%;
-  }
-  @media (min-width: ${mobileMax}px) {
-    position: absolute;
-    z-index: 10;
-    margin-top: 120%;
-    margin-left: 50%;
   }
 `;
 

@@ -20,6 +20,6 @@ export const photos = (selected: number) => {
     case 5:
       return images_windows;
     default:
-      return null;
+      return images_regular;
   }
 };

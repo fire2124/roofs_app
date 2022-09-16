@@ -26,12 +26,12 @@ const StyledText = styled.p`
 const StyledArticle = styled.article`
   position: relative;
   z-index: 10;
-  margin-top: -4%;
+  margin-top: 0%;
   width: 100%;
   background: #32323f;
   padding-bottom: 5%;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
-    position: static;
+    position: relative;
     padding: 0 10% 4% 10%;
     padding-bottom: 0%;
   }
@@ -42,6 +42,9 @@ const StyledAbout = styled.div`
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     width: 65%;
 
+  }
+  @media (min-width: ${mobileMax}px) AND (max-width: 1450px) {
+    width: 80%;
   }
 `;
 
@@ -63,6 +66,7 @@ const OrangeLine = styled.div(
 
 const StyledSection = styled.section`
   margin-left: 10%;
+  padding-top: 2% ;
 `;
 
 function About() {

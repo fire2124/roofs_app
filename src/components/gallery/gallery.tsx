@@ -1,67 +1,100 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import { mobileMax } from "../responsiveness";
-import ArrowRight from "../../assets/arrow_right.svg";
-import ArrowLeft from "../../assets/arrow_left.svg";
 import { photos } from "./photos";
-import { getImages } from "../../services/helper";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import { mobileMax } from "../responsiveness";
+import "./css.css";
 
-const StyledDivUp = styled.div`
-  display: grid;
-  justify-items: center;
+const OrangeOption = styled.option`
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 143.2%;
+  letter-spacing: 0.015em;
+  font-feature-settings: "pnum" on, "lnum" on, "case" on;
+  color: #f58310;
+  border: none;
+  background: none;
 `;
+
+const OrangeDropdown = styled.select`
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 143.2%;
+  letter-spacing: 0.015em;
+  font-feature-settings: "pnum" on, "lnum" on, "case" on;
+  color: #f58310;
+  border: none;
+  background: none;
+  @media (min-width: 1680px) {
+    margin-left: 10%;
+  }
+`;
+
+const BackgroundOfGallery = styled.div`
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    background: #e2dfdc;
+  }
+  @media (min-width: 1200px) {
+    margin-top: -100%;
+    z-index: 100;
+    position: relative;
+  }
+  @media (min-width: 1200px) {
+    margin-top: -100%;
+  }
+  @media (min-width: 1280px) {
+    margin-top: -80%;
+  }
+  @media (min-width: 1380px) and (max-width: 1679px) {
+    margin-top: -70%;
+  }
+  @media (min-width: 1680px) {
+    margin-top: -55%;
+  }
+`;
+
+const StyledCarousel = styled(Carousel)`
+  width: 70%;
+  @media (min-width: 1580px) {
+    width: 50%;
+  }
+`;
+
 const StyledDiv = styled.div`
   display: flex;
-`;
-const StyledGallery = styled.div`
-  width: 800px;
-  height: 800px;
-`;
-
-const StyledArrowLeft = styled.img`
-  display: block;
-  color: white;
-  position: absolute;
-  justify-items: start;
-  margin-top: 25%;
-  width: 60px;
-  height: 52px;
-  :hover {
-    border: 2px solid #f58310;
-  }
-`;
-const StyledArrowRight = styled.img`
-  display: block;
-  color: white;
-  position: absolute;
-  align-content: center;
-  margin-left: 72%;
-  margin-top: 25%;
-  width: 60px;
-  height: 52px;
-  :hover {
-    border: 2px solid #f58310;
-  }
-`;
-
-const StyledSmallPics = styled.div`
-  display: flex;
-  margin-top: -15%;
-  margin-left: -10%;
-`;
-
-const StyledH3 = styled.h3`
-  position: absolute;
-  background: #32323f;
-  font-family: "Arya";
-  color: white;
-  margin-left: 71%;
-  padding: 0px 5px 0px 5px;
+  justify-content: center;
+  gap: 1%;
 `;
 
 const StyledImg = styled.img`
-  border: 2px solid #f69532;
+  @media (min-width: 300px) {
+    max-height: 350px;
+  }
+  @media (min-width: 780px) {
+    max-height: 550px;
+  }
+  @media (min-width: 1300px) {
+    height: 750px;
+    max-height: 750px;
+  }
+`;
+const StyledImg2 = styled.img`
+  @media (min-width: 300px) {
+    max-height: 350px;
+  }
+  @media (min-width: 780px) {
+    max-height: 550px;
+  }
+  @media (min-width: 1300px) {
+    width: 30%;
+    height: 750px;
+    max-height: 750px;
+  }
 `;
 
 const arrayOfButtons = [
@@ -73,107 +106,68 @@ const arrayOfButtons = [
   { label: "Iné práce", number: 2 },
 ];
 
-function Gallery(props: any) {
-  const [current, setCurrent] = useState(0);
-  const { width } = props;
-  const [images, setImages] = useState(photos(0));
-  const [length, setLength] = useState(images ? images : ([].length as any));
+const Bdiv2 = styled.div(
+  ({ theme }) => `
+  @media (min-width: 300px) and (max-width:  ${mobileMax}px){
+    width: 0;
+    height: 0;
+    margin-top: -30%;
+    border-bottom: ${theme / 3}px solid #32323f;
+    border-left: ${theme * 0.97}px solid transparent;
+  }
+`
+);
 
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
+function Gallery(props: any) {
+  const [images, setImages] = useState(photos(0));
+  const [current, setCurrent] = useState(0);
+
   const setValue = (number: number) => {
     setImages(photos(number));
     setCurrent(0);
   };
 
-  const object = getImages(
-    current,
-    images,
-    width >= 1600 ? 7 : width >= 1200 ? 5 : 3
-  )
-
   return (
-    <>
-      {arrayOfButtons.map((button: any) => {
-        return (
-          <button onClick={() => setValue(button.number)}>
-            {button.label}
-          </button>
-        );
-      })}
-
-      <StyledDivUp>
-        <StyledDiv>
-          {current + 1 > 1 ? (
-            <StyledArrowLeft
-              src={ArrowLeft}
-              alt={"ArrowLeft"}
-              onClick={prevSlide}
-            />
-          ) : null}
-          <StyledGallery>
-            {images !== null
-              ? images.map((slide: any, index: number) => {
-                  return (
-                    <div key={index}>
-                      {index === current && (
-                        <img
-                          src={slide.original}
-                          alt={"alt"}
-                          width="872px"
-                          height="597px"
-                        />
-                      )}
-                    </div>
-                  );
-                })
-              : null}
-          </StyledGallery>
-          <StyledH3>
-            {current + 1} / {images ? images.length : null}
-          </StyledH3>
-          {images && current + 1 < images.length ? (
-            <StyledArrowRight
-              src={ArrowRight}
-              alt={"ArrowRight"}
-              onClick={nextSlide}
-            />
-          ) : null}
-        </StyledDiv>
-        {width <= mobileMax ? null : (
-          <StyledSmallPics>
-            {object &&
-              object.together.map((slide: any, index: number) => {
-                return (
-                  <div key={index}>
-                    {index === object.current ? (
-                      <StyledImg
-                        src={slide.original}
-                        alt={slide.alt}
-                        width="160px"
-                        height="110px"
-                        onClick={() => setCurrent(index)}
-                      />
-                    ) : (
-                      <img
-                        src={slide.original}
-                        alt={slide.alt}
-                        width="160px"
-                        height="110px"
-                        onClick={() => setCurrent(index)}
-                      />
-                    )}
-                  </div>
-                );
-              })}
-          </StyledSmallPics>
-        )}
-      </StyledDivUp>
-    </>
+    <BackgroundOfGallery>
+      <OrangeDropdown onChange={(e) => setValue(parseInt(e.target.value))}>
+        {arrayOfButtons.map((button: any) => {
+          return (
+            <OrangeOption value={button.number}>{button.label}</OrangeOption>
+          );
+        })}
+      </OrangeDropdown>
+      <StyledDiv>
+        {current > 0 && props.width > mobileMax ? (
+          <StyledImg2
+            src={images[current - 1].original}
+            alt={images[current - 1].alt}
+          />
+        ) : null}
+        <StyledCarousel
+          dynamicHeight={true}
+          showThumbs={false}
+          emulateTouch={true}
+          onChange={(index) => {
+            setCurrent(index);
+          }}
+        >
+          {images.map((e: any) => {
+            return (
+              <div key={e.key}>
+                <StyledImg src={e.original} alt={e.alt} />
+              </div>
+            );
+          })}
+        </StyledCarousel>
+        {current < images.length - 1 && props.width > mobileMax ? (
+          <StyledImg2
+            src={images[current + 1].original}
+            alt={images[current + 1].alt}
+          />
+        ) : null}
+      </StyledDiv>
+      <Bdiv2 theme={props.width} />
+    </BackgroundOfGallery>
   );
 }
 
