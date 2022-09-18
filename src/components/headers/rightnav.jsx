@@ -8,7 +8,7 @@ const Ul = styled.ul`
   li {
     padding: 5px 10px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 832px) {
     flex-flow: column nowrap;
     background-color: #343441;
     position: fixed;
@@ -23,11 +23,26 @@ const Ul = styled.ul`
       color: #FFFFFF;
     }
   }
+  @media (min-width: 832px) {
+      margin-left: -15%;
+    }
+  @media (min-width: 1000px) {
+      margin-left: -5%;
+    }
+    @media (min-width: 1200px) {
+      margin-left: 5%;
+    }
+  @media (min-width: 1600px) {
+      margin-left: 15%;
+    }
 `;
 
 const StyledLi = styled.li`
     margin-left: 10%;
-    margin-top: 3%;
+    margin-top: 7%;
+    @media (min-width: 500px) {
+      margin-top: 3.5%;
+    }
 `;
 
 const StyledA = styled.a`
@@ -63,16 +78,14 @@ const StyledA3 = styled(StyledA)`
 
 const StyledUl = styled.ul`
   list-style: none;
-  margin-top: 10%;
-  margin-left: -44%;
+  margin-top: 3%;
 `
 const StyledLi2 = styled.li`
-    margin-left: 10%;
-    margin-top: 3%;
+    margin-top: 7%;
 `;
 
 
-const RightNav = ({ open,setOpen }) => {
+const RightNav = ({ open, setOpen }) => {
   return (
     <Ul
       open={open}
@@ -84,8 +97,10 @@ const RightNav = ({ open,setOpen }) => {
               <StyledA2 href={`#${e.href}`} key={index} onClick={() => setOpen(!open)}>
                 {e.label}
               </StyledA2> :
-              <StyledA href={`#${e.href}`} key={index} onClick={() => setOpen(!open)}>
-                {e.label}
+              <>
+                <StyledA href={`#${e.href}`} key={index} onClick={() => setOpen(!open)}>
+                  {e.label}
+                </StyledA>
                 {open === true && window.innerWidth < 768 ? <StyledUl>
                   {e.child ? e.child.map((child, index2) =>
                     <StyledLi2 key={index}>
@@ -95,7 +110,7 @@ const RightNav = ({ open,setOpen }) => {
                     </StyledLi2>) : null}
                 </StyledUl>
                   : null}
-              </StyledA>
+              </>
             }
           </StyledLi>
         );

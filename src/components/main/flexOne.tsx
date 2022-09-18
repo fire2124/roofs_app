@@ -9,14 +9,28 @@ const FlexArticle = styled.article(
   position: relative;
   z-index: 2;
 
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    padding-bottom: 4%;
+  }
+
   @media (min-width: ${mobileMax}px)  {
+    display: grid;
+    grid-template-columns: 52.5% 47.5%;
+    grid-template-rows: 50% 50%;
+    padding: 2% 2% 5% 2%;
+    position: static;
+  }
+  @media (min-width: 1115px)  {
+    grid-template-columns: 53.5% 46.5%;
+  }
+
+  @media (min-width: 1300px)  {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
     padding: 2% 2% 5% 2%;
     position: static;
   }
-
   @media (min-width: ${theme.px}px) {
     margin-top: -${theme.percent}%;
   }
@@ -27,7 +41,7 @@ const FlexArticle = styled.article(
 
    @media (min-width: 1336px) {
     position: relative; 
-    grid-template-rows: 27% 33% 33%;
+    grid-template-rows: 27% 36% 33%;
 
   }
 
@@ -45,6 +59,7 @@ const ImageDiv = styled.section`
   @media (min-width: ${mobileMax}px) and (max-width: 1000px) {
     width: 100%;
     height: 100%;
+    margin-top: 9%;
     grid-row-start: 1;
     grid-row-end: 1;
     grid-column-start: 1;
@@ -53,16 +68,15 @@ const ImageDiv = styled.section`
   @media (min-width: 1300px) {
     width: 90%;
     height: 100%;
-    margin-top:20%;
+    margin-top: 20%;
     grid-row-start: 1;
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 1;
   }
   @media (min-width: 1600px) {
-    margin-left: 18%;
-    margin-top:18%;
-
+    margin-left: 14%;
+    margin-top: 18%;
   }
 `;
 
@@ -97,7 +111,7 @@ const StyledOfferDiv = styled.section`
   height: 90%;
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     background: #e2dfdc;
-    padding: 12px 0 32px 0;
+    /* padding: 12px 0 32px 0; */
   }
   @media (min-width: ${mobileMax}px) and (max-width: 1080px) {
     background: #e2dfdc;
@@ -108,10 +122,10 @@ const StyledOfferDiv = styled.section`
     padding: 0% 5% 0% 5%;
   }
   @media (min-width: 1336px) {
-    width:80%;
+    width: 80%;
   }
   @media (min-width: 1536px) {
-    width:70%;
+    width: 70%;
   }
 `;
 
@@ -126,8 +140,15 @@ const OrangeLine = styled.div(
   
    @media (min-width: 300px) and (max-width:1080px) {
       position: static;
-      margin-left: 12%;
-      margin-top: 8%;
+      margin-left: 6%;
+      margin-top: 5%;
+      width: 1px;
+      height: ${theme * 0.8}px;
+    }
+    @media (min-width: 1080px) and (max-width:1300px) {
+      position: static;
+      margin-left: 2%;
+      margin-top: 5%;
       width: 1px;
       height: ${theme * 0.8}px;
     }
@@ -154,8 +175,8 @@ const StyledP = styled.p`
 
 const OfferDivLeft = styled.div`
   @media (min-width: 300px) and (max-width: 1080px) {
-    margin-left: 10%;
-    width: 80%;
+    margin-left: 5%;
+    width: 90%;
   }
   @media (min-width: ${mobileMax}px) {
     margin-left: 6%;
@@ -165,8 +186,8 @@ const OfferDivLeft = styled.div`
 const OfferDivRight = styled.div`
   height: 100%;
   @media (min-width: 300px) and (max-width: 1080px) {
-    width: 80%;
-    margin-left: 10%;
+    margin-left: 5%;
+    width: 90%;
   }
   @media (min-width: ${mobileMax}px) {
     margin-left: 6%;
@@ -230,6 +251,13 @@ const WhiteSmallText = styled.p`
   }
 `;
 
+const StyledOfferDiv3 = styled(StyledOfferDiv)`
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    padding-bottom: 4%;
+  }
+
+`;
+
 export const FlexOne = (props: any) => {
   return (
     <FlexArticle
@@ -251,11 +279,11 @@ export const FlexOne = (props: any) => {
         </DarkBlueImg>
       </ImageDiv>
       {json.main.house_text.map((e: any, i: number) => {
-        if (i === 0 || i === 2)
+        if (i === 0)
           return (
             <StyledOfferDiv id={e.href} key={i}>
               <OrangeLine theme={props.height[i]} />
-              <OfferDivLeft >
+              <OfferDivLeft>
                 <StyledH2> {e.label}</StyledH2>
                 <StyledP> {e.text}</StyledP>
               </OfferDivLeft>
@@ -265,7 +293,7 @@ export const FlexOne = (props: any) => {
           return (
             <StyledOfferDiv2 id={e.href} key={i}>
               <OrangeLine2 theme={props.height[i]} />
-              <OfferDivRight >
+              <OfferDivRight>
                 <StyledH2Right>
                   {e.label.includes("<br/>") ? (
                     <>
@@ -279,6 +307,16 @@ export const FlexOne = (props: any) => {
                 <StyledP> {e.text}</StyledP>
               </OfferDivRight>
             </StyledOfferDiv2>
+          );
+        else if (i === 2)
+          return (
+            <StyledOfferDiv3 id={e.href} key={i}>
+              <OrangeLine theme={props.height[i]} />
+              <OfferDivLeft>
+                <StyledH2> {e.label}</StyledH2>
+                <StyledP> {e.text}</StyledP>
+              </OfferDivLeft>
+            </StyledOfferDiv3>
           );
         else return null;
       })}{" "}

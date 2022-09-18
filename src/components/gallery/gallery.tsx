@@ -17,6 +17,7 @@ const OrangeOption = styled.option`
   color: #f58310;
   border: none;
   background: none;
+  padding: 5px;
 `;
 
 const OrangeDropdown = styled.select`
@@ -30,11 +31,17 @@ const OrangeDropdown = styled.select`
   color: #f58310;
   border: none;
   background: none;
+
   @media (min-width: 1680px) {
     margin-left: 10%;
   }
 `;
-
+const StyledDropdownDiv = styled.div`
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    margin-left: 4%;
+    padding: 2%;
+  }
+`;
 const BackgroundOfGallery = styled.div`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     background: #e2dfdc;
@@ -47,28 +54,45 @@ const BackgroundOfGallery = styled.div`
   @media (min-width: 1200px) {
     margin-top: -100%;
   }
-  @media (min-width: 1280px) {
-    margin-top: -80%;
+  @media (min-width: 1280px) and (max-width: 1300px) {
+    margin-top: -90%;
   }
-  @media (min-width: 1380px) and (max-width: 1679px) {
-    margin-top: -70%;
+  @media (min-width: 1300px) and (max-width: 1342px) {
+    margin-top: -60%;
+  }
+  @media (min-width: 1342px) and (max-width: 1500px) {
+    margin-top: -45%;
+  }
+  @media (min-width: 1500px) and (max-width: 1680px) {
+    margin-top: -65%;
   }
   @media (min-width: 1680px) {
-    margin-top: -55%;
+    margin-top: -35%;
+
   }
 `;
 
 const StyledCarousel = styled(Carousel)`
-  width: 70%;
-  @media (min-width: 1580px) {
-    width: 50%;
+  @media (min-width: 300px) and (max-width:${mobileMax}px) {
+    width: 90% ;
+  }
+  @media (min-width: ${mobileMax}px) and (max-width:1920px) {
+    width: 33% ;
   }
 `;
 
 const StyledDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1%;
+  @media (min-width: 300px) and (max-width:${mobileMax}px) {
+    display: flex;
+    justify-content: center;
+  }
+  @media (min-width: ${mobileMax}px) and (max-width:1920px) {
+    display: flex;
+    justify-content:center ;
+    grid-template-columns: 33% 33% 33%;
+    width: 100%;
+    gap: 1%;
+  }
 `;
 
 const StyledImg = styled.img`
@@ -76,24 +100,29 @@ const StyledImg = styled.img`
     max-height: 350px;
   }
   @media (min-width: 780px) {
-    max-height: 550px;
+    min-width: 400px;
+    max-height: 400px;
   }
   @media (min-width: 1300px) {
-    height: 750px;
-    max-height: 750px;
+    min-width: 584px;
+    max-width: 584px;
+    min-height: 400px;
+    max-height: 400px;
   }
 `;
 const StyledImg2 = styled.img`
   @media (min-width: 300px) {
-    max-height: 350px;
+    width: 350px;
   }
   @media (min-width: 780px) {
-    max-height: 550px;
+    min-width: 400px;
+    max-height: 400px;
   }
   @media (min-width: 1300px) {
-    width: 30%;
-    height: 750px;
-    max-height: 750px;
+    min-width: 584px;
+    max-width: 584px;
+    height: 400px;
+    max-height: 400px;
   }
 `;
 
@@ -111,9 +140,9 @@ const Bdiv2 = styled.div(
   @media (min-width: 300px) and (max-width:  ${mobileMax}px){
     width: 0;
     height: 0;
-    margin-top: -30%;
-    border-bottom: ${theme / 3}px solid #32323f;
-    border-left: ${theme * 0.97}px solid transparent;
+    margin-top: -60%;
+    border-bottom: ${theme / 1.9}px solid #32323f;
+    border-left: ${theme * 0.98}px solid transparent;
   }
 `
 );
@@ -129,13 +158,15 @@ function Gallery(props: any) {
 
   return (
     <BackgroundOfGallery>
-      <OrangeDropdown onChange={(e) => setValue(parseInt(e.target.value))}>
-        {arrayOfButtons.map((button: any) => {
-          return (
-            <OrangeOption value={button.number}>{button.label}</OrangeOption>
-          );
-        })}
-      </OrangeDropdown>
+      <StyledDropdownDiv>
+        <OrangeDropdown onChange={(e) => setValue(parseInt(e.target.value))}>
+          {arrayOfButtons.map((button: any) => {
+            return (
+              <OrangeOption value={button.number}>{button.label}</OrangeOption>
+            );
+          })}
+        </OrangeDropdown>
+      </StyledDropdownDiv>
       <StyledDiv>
         {current > 0 && props.width > mobileMax ? (
           <StyledImg2
@@ -147,16 +178,13 @@ function Gallery(props: any) {
           dynamicHeight={true}
           showThumbs={false}
           emulateTouch={true}
+          selectedItem={current}
           onChange={(index) => {
             setCurrent(index);
           }}
         >
           {images.map((e: any) => {
-            return (
-              <div key={e.key}>
-                <StyledImg src={e.original} alt={e.alt} />
-              </div>
-            );
+            return <StyledImg src={e.original} alt={e.alt} />;
           })}
         </StyledCarousel>
         {current < images.length - 1 && props.width > mobileMax ? (

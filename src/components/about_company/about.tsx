@@ -27,53 +27,77 @@ const StyledArticle = styled.article`
   position: relative;
   z-index: 10;
   margin-top: 0%;
-  width: 100%;
+  /* width: 100%; */
   background: #32323f;
-  padding-bottom: 5%;
+  padding-bottom: 1%;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     position: relative;
-    padding: 0 10% 4% 10%;
     padding-bottom: 0%;
+  }
+  @media (min-width: 1450px) {
+   display: flex;
+   justify-content: center;
   }
 `;
 const StyledAbout = styled.div`
   width: 45%;
   padding: 0 10% 0% 10%;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
-    width: 65%;
-
+    //width: 65%;
+    width: 82%;
   }
   @media (min-width: ${mobileMax}px) AND (max-width: 1450px) {
     width: 80%;
   }
+  @media (min-width: 1450px) {
+    width: 50%;
+  }
+
 `;
 
 const OrangeLine = styled.div(
   ({ theme }) => `
-  height: ${theme * 3}%;
+  height: ${theme / 10 < 90 ? `${theme / 10}%` : "350px"};
   width: 0.001px;
-  margin-left: -3.5%;
-  margin-top: 6%;
+  margin-left: -1%;
+  margin-top: 5%;
   border: 1px solid #F58310;
   background: #F58310;
   position: absolute;
 
-  @media (min-width: 300px) AND (max-width: 430px) {
-    height: ${theme * 2.3}%;
+  @media (min-width: 300px) AND (max-width: 418px) {
+    height: ${theme/4.5}%;
+    margin-top: 11%;
+  }
+  @media (min-width: 418px) AND (max-width: 518px) {
+    height: ${theme/5.5}%;
+    margin-top: 11%;
+  }
+  @media (min-width: 519px) AND (max-width:618px) {
+    height: ${theme/6.5}%;
+    margin-top: 11%;
+  }
+  @media (min-width: 618px) AND (max-width:700px) {
+    height: ${theme/7.5}%;
+    margin-top: 11%;
+  }
+  @media (min-width: 700px) AND (max-width:${mobileMax}px) {
+    height: ${theme/8.5}%;
+    margin-top: 11%;
   }
 `
 );
 
 const StyledSection = styled.section`
-  margin-left: 10%;
+  margin-left: 4%;
   padding-top: 2% ;
 `;
 
-function About() {
+function About(props:any) {
   return (
     <StyledArticle>
       <StyledAbout>
-        <OrangeLine theme={28} />
+        <OrangeLine theme={props.width} />
         <StyledSection>
           <StyledHeader id="about_company">
             {json.about_company.header}

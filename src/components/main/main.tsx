@@ -18,10 +18,10 @@ const MainImg = styled.div`
   }
 
   @media (min-width: 434px) {
-    height: 343px;
+    min-height: 370px;
     width: 100%;
     position: static;
-    background-position: 33% 237%;
+    background-position: 33% 103%;
     transform: scale(1, 1);
     z-index: 11;
   }
@@ -65,12 +65,6 @@ const Bdiv = styled.div(
 const Bdiv2 = styled.div(
   ({ theme }) => `
   @media (min-width: ${mobileMax}px) and (max-width: 878px){
-    // width: 0;
-    // height: 0;
-    // margin-top:100%;
-    // border-top: 300px solid transparent;
-    // border-bottom: ${1900}px solid #32323f;
-    // border-left: ${theme * 0.838}px solid transparent;
     display:none;
   }
   @media (min-width: 1200px) and (max-width:1300px){
@@ -83,28 +77,28 @@ const Bdiv2 = styled.div(
   @media (min-width: 1300px) and (max-width:1430px) {
     width: 0;
     height: 0;
-    margin-top: -90%;
-    border-bottom: ${1900}px solid #32323f;
+    margin-top: -126%;
+    border-bottom: ${1834}px solid #32323f;
     border-left: ${theme * 0.99}px solid transparent;
   }
   @media (min-width: 1430px) and (max-width:1450px){
     width: 0;
     height: 0;
-    margin-top: -81%;
-    border-bottom: ${1900}px solid #32323f;
+    margin-top: -120%;
+    border-bottom: ${1834}px solid #32323f;
     border-left: ${theme * 0.99}px solid transparent;
   }
   @media (min-width: 1450px) and (max-width:1546px){
     width: 0;
     height: 0;
-    margin-top: -80%;
-    border-bottom: ${1900}px solid #32323f;
+    margin-top: -115%;
+    border-bottom: ${1834}px solid #32323f;
     border-left: ${theme * 0.99}px solid transparent;
   }
   @media (min-width: 1546px){
     width: 0;
     height: 0;
-    margin-top: -78%;
+    margin-top: -100%;
     border-bottom: ${1900}px solid #32323f;
     border-left: ${theme * 0.99}px solid transparent;
   }
@@ -149,7 +143,7 @@ const StyledPadding = styled.div`
     padding-left: 5%;
   }
   @media (min-width: 1600px) {
-    padding-left: 22%;
+    padding-left: 17%;
   }
 `;
 
@@ -180,7 +174,7 @@ const StyledImg = styled.img`
   margin-top: 1.5%;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     position: static;
-    margin-left: 10%;
+    margin-left: 5%;
   }
 `;
 
@@ -212,6 +206,14 @@ const OfferingA = styled.a`
 
 const StyledUl = styled.ul`
   list-style-type: none;
+  @media (min-width: 300px) and (max-width: 45px) {
+    margin-left: -6%;
+    width:84%;
+  }
+  @media (min-width: 450px) and (max-width: ${mobileMax}px) {
+    margin-left: -2%;
+    width:84%;
+  }
   @media (min-width: ${mobileMax}px) {
     margin-top: 0%;
   }
@@ -232,6 +234,9 @@ const Offering = styled.section(
     width: 100%;
     display: flex;
     margin-left: 0%;
+    padding-top:2%;
+    padding-bottom:2%;
+
   }
   @media (min-width: ${mobileMax}px) and (max-width: 1920px) {
     margin-top: ${theme.width * theme.percent}%;

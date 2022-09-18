@@ -1,35 +1,41 @@
 import styled from "styled-components";
 import Burger from "./burger";
 import logo from "../../images/logo.svg";
-import {mobileMax} from "../responsiveness"
+import { mobileMax } from "../responsiveness";
 
 const StyledNav = styled.nav`
-  width: 70%;
+  width: 100%;
   padding: 5px 20px;
   display: flex;
-  justify-content: space-between;
+  position: fixed;
+  z-index: 203;
+  background: #343441;
   .logo {
     padding: 15px 0;
   }
-  @media (max-width: ${mobileMax}px) {
+  @media (min-width: 300px) and (max-width: 832px) {
+    justify-content: start;
     padding: 5px 20px 20px;
   }
 `;
 
+const StyledA = styled.a`
+  width:50%;
+  display: flex;
+  justify-content: start;
+`
+
 const StyledImg = styled.img`
   padding: 5px 0;
 
-  @media (min-width: 1600px) {
-    margin-left: 100%;
-  }
 `;
 
 const Header = () => {
   return (
-    <StyledNav>
-      <a href="/">
+    <StyledNav id="navbar">
+      <StyledA href="/">
         <StyledImg src={logo} alt="Logo" width="200px" height="100%" />
-      </a>
+      </StyledA>
       <Burger />
     </StyledNav>
   );

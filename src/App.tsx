@@ -8,7 +8,6 @@ import About from "./components/about_company/about";
 import styled from "styled-components";
 import { mobileMax } from "./components/responsiveness";
 
-
 const Background = styled.div`
   background: #32323f;
   height: 100%;
@@ -19,7 +18,6 @@ const Background = styled.div`
 
 const BackgroundSection = styled.main`
   background: #e2dfdc;
-
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     background: #32323f;
   }
@@ -49,15 +47,15 @@ function App() {
     });
     setHeight(value);
   }, []);
-  
+
   return (
     <Background>
       <Header />
       <BackgroundSection>
         <Main width={width} height={height} />
-        <Gallery width={width}/>
-        <About />
-        <Footer />
+        <Gallery width={width} />
+        <About width={width} />
+        <Footer width={width} />
       </BackgroundSection>
     </Background>
   );

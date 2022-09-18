@@ -19,8 +19,25 @@ export const FlexOneResponsiveness = [
   {px:1181,max:1210,percent:65},
   {px:1210,max:1299,percent:55},
   {px:1300,max:1330,percent:50},
-  {px:1336,max:1410,percent:120},
+  {px:1336,max:1410,percent:126},
   {px:1411,max:1510,percent:110},
+  {px:1510,max:1600,percent:100},
+  {px:1600,max:1710,percent:85},
+  {px:1900,max:1920,percent:65}
+]
+
+export const FlexOneResponsiveness2 = [
+  {px:mobileMax,max:848,percent:95},
+  {px:848,max:926,percent:80},
+  {px:926,max:975,percent:70},
+  {px:975,max:1075,percent:80},
+  {px:1076,max:1099,percent:75},
+  {px:1100,max:1180,percent:70},
+  {px:1181,max:1210,percent:65},
+  {px:1210,max:1299,percent:55},
+  {px:1300,max:1335,percent:50},
+  {px:1336,max:1410,percent:200},
+  {px:1411,max:1510,percent:150},
   {px:1510,max:1600,percent:100},
   {px:1600,max:1710,percent:85},
   {px:1900,max:1920,percent:65}

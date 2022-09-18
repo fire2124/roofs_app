@@ -1,0 +1,24 @@
+.carousel .control-dots {
+  display: none;
+}
+
+.carousel .carousel-status {
+  font-size: 14px;
+  position: absolute;
+  background: #32323f;
+  font-family: "Arya";
+  color: white;
+  margin-left: 71%;
+  padding: 0px 5px 0px 5px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../../images/Vector\ 7.svg") no-repeat 96% !important;
+  width: 330px;
+  padding: 1%;
+}
+
+select::-ms-expand { display: none; }

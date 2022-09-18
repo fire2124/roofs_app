@@ -1,7 +1,7 @@
 import json from "../../json/text.json";
 import styled from "styled-components";
 import images from "../images";
-import { mobileMax, FlexOneResponsiveness } from "../responsiveness";
+import { mobileMax, FlexOneResponsiveness2 } from "../responsiveness";
 import { percent } from "../../services/helper";
 
 const FlexArticle = styled.article(
@@ -16,28 +16,29 @@ const FlexArticle = styled.article(
     margin-top: -4%;
   }
 
-  @media (min-width: ${mobileMax}px)  {
+  @media (min-width: ${mobileMax}px) and (max-width:1300px) {
     flex-direction: column-reverse;
-
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 56% 50%;
     grid-template-rows: 50% 50%;
-    padding: 2% 2% 5% 2%;
+    padding: 0% 2% 0% 2%;
     position: static;
   }
 
+
   @media (min-width: ${theme.px}px) {
-    margin-top: -${theme.percent/10}%;
+    margin-top: -${theme.percent / (theme.px < 800 ? 16 : 15)}%;
   }
 
   @media (min-width: 1300px) {
-    grid-template-rows: 28% 38%;
+    display: grid;
+    grid-template-rows: 20% 20% 20%;
+    grid-template-columns: 50% 50%;
   }
 
    @media (min-width: 1336px) {
     position: relative; 
-    grid-template-rows: 22%  20% 33%;
-
+    grid-template-rows: 21% 20% 22%;
   }
 
   @media (min-width: 1410px) {
@@ -63,9 +64,17 @@ const DarkBlueImg = styled.div`
 
   @media (min-width: 980px) and (max-width: 1700px) {
     width: 95%;
+   
   }
   @media (min-width: 1701px) and (max-width: 1920px) {
     width: 80%;
+  }
+  @media (min-width: 1300px) and (max-width: 1600px) {
+    margin-left: 10%;
+   
+  }
+  @media (min-width: 1900px)  {
+    margin-left: 6%;
   }
 `;
 const WhiteSmallText = styled.p`
@@ -134,10 +143,10 @@ border: 1px solid #F58310;
 background: #F58310;
 position: absolute;
 
-@media (min-width: 300px) and (max-width:1080px) {
+@media (min-width: 300px) and (max-width:1300px) {
   position: static;
-  margin-left: 12%;
-  margin-top: 8%;
+  margin-left: 6%;
+  margin-top: 5%;
   width: 1px;
   height: ${theme * 0.8}px;
 }
@@ -146,18 +155,21 @@ position: absolute;
 
 const OfferDivLeft = styled.div`
   @media (min-width: 300px) and (max-width: 1080px) {
-    margin-left: 10%;
-    width: 80%;
+    margin-left: 5%;
+    width: 90%;
   }
   @media (min-width: ${mobileMax}px) {
+    margin-left: 6%;
+  }
+  @media (min-width: 1336px) {
     margin-left: 6%;
   }
 `;
 
 const OfferDivRight = styled.div`
   @media (min-width: 300px) and (max-width: 1080px) {
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
   }
   @media (min-width: ${mobileMax}px) {
     margin-left: 6%;
@@ -176,17 +188,18 @@ const StyledOfferDiv = styled.section`
   height: 90%;
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     background: #e2dfdc;
-    padding: 12px 0 32px 0;
+    /* padding: 12px 0 32px 0; */
   }
-  @media (min-width: ${mobileMax}px) and (max-width: 1080px) {
+  @media (min-width: ${mobileMax}px) and (max-width: 1300px) {
     background: #e2dfdc;
+    display: flex;
+    flex-direction: row-reverse;
     grid-row-start: 1;
-
-    grid-column-start: 2 !important;
+    grid-column-start: 1 !important;
     padding: 12px 0 32px 0;
   }
   @media (min-width: 1080px) {
-    padding: 0% 5% 0% 5%;
+    padding: 0% 0% 0% 4%;
   }
   @media (min-width: 1336px) {
     width: 80%;
@@ -195,15 +208,21 @@ const StyledOfferDiv = styled.section`
   @media (min-width: 1536px) {
     width: 70%;
     height: 100%;
-    margin-left: 15%;
+    margin-left: 11%;
   }
 `;
 
-const StyledOfferDiv2 = styled(StyledOfferDiv)`
+const StyledOfferDiv2 = styled.section`
+  display: flex;
+  flex: 0 1 auto;
+  height: 90%;
   @media (min-width: ${mobileMax}px) and (max-width: 1300px) {
-    grid-column-start: 1 !important;
+    background: #e2dfdc;
     grid-row-start: 2;
+    grid-column-start: 1 !important;
+    flex-direction: row-reverse;
   }
+  
   @media (min-width: 1300px) {
     display: flex;
     flex-direction: row-reverse;
@@ -219,29 +238,64 @@ const StyledOfferDiv2 = styled(StyledOfferDiv)`
   }
 `;
 
-const StyledOfferDiv3 = styled(StyledOfferDiv)`
-  @media (min-width: 1300px) {
+const StyledOfferDiv3 = styled.section`
+  display: flex;
+  flex: 0 1 auto;
+  height: 90%;
+  @media (min-width: ${mobileMax}px) and (max-width: 1300px) {
     background: #e2dfdc;
-    grid-column-start: 1 !important;
-    grid-row-start: 3;
+    grid-row-start: 2;
+    grid-column-start: 2 !important;
     padding: 12px 0 32px 0;
   }
+  @media (min-width: 1080px) {
+    padding: 0% 0% 0% 4%;
+  }
+  @media (min-width: 1300px) {
+    grid-column-start: 1 !important;
+    grid-row-start: 3;
+  }
+  @media (min-width: 1536px) {
+    background: none;
+    width: 70%;
+    height: 100%;
+    margin-left: 11%;
+  }
+
 `;
 const ImageDiv = styled.section`
   @media (min-width: ${mobileMax}px) and (max-width: 1000px) {
-    width: 100%;
+    width: 82%;
+    margin-left: 5%;
+    margin-top: 9%;
     height: 100%;
     grid-row-start: 1;
     grid-row-end: 1;
-    grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+  @media (min-width:1000px) and (max-width: 1300px) {
+    width: 87%;
+    margin-left: 6%;
+    /* margin-top: -4%; */
+    height: 100%;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+  @media (min-width:1000px) and (max-width: 1080px) {
+    margin-top: 1%;
+    
   }
   @media (min-width: 1300px) {
     width: 90%;
     height: 100%;
     margin-top: 20%;
-    grid-row-start: 1;
-    grid-column-start: 2;
+    grid-row-start: 1 !important;
+    grid-row-end: 1;
+    grid-column-start: 2 !important;
+    grid-column-end: 2;
   }
   @media (min-width: 1600px) {
     margin-left: 14%;
@@ -257,14 +311,16 @@ const OrangeLine2 = styled(OrangeLine)`
 
 export const FlexTwo = (props: any) => {
   return (
-    <FlexArticle theme={
-      props.width < mobileMax
-        ? props.width
-        : percent(FlexOneResponsiveness, props.width)
-    }>
+    <FlexArticle
+      theme={
+        props.width < mobileMax
+          ? props.width
+          : percent(FlexOneResponsiveness2, props.width)
+      }
+    >
       {json.main.house_text.map((e: any, i: number) => {
         switch (i) {
-          case 5:
+          case 3:
             return (
               <StyledOfferDiv id={e.href} key={i}>
                 <OrangeLine theme={props.height[i]} />
@@ -277,7 +333,7 @@ export const FlexTwo = (props: any) => {
           case 4:
             return (
               <StyledOfferDiv2 id={e.href} key={i}>
-                <OrangeLine2 theme={props.height[i]} />
+                <OrangeLine theme={props.height[i]} />
                 <OfferDivRight>
                   <StyledPBigRight>
                     {e.label.includes("<br/>") ? (
@@ -293,10 +349,10 @@ export const FlexTwo = (props: any) => {
                 </OfferDivRight>
               </StyledOfferDiv2>
             );
-          case 3:
+          case 5:
             return (
               <StyledOfferDiv3 id={e.href} key={i}>
-                <OrangeLine theme={props.height[i]} />
+                <OrangeLine2 theme={props.height[i]} />
                 <OfferDivLeft>
                   <StyledPBig> {e.label}</StyledPBig>
                   <StyledP> {e.text}</StyledP>

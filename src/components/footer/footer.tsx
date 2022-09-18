@@ -1,6 +1,7 @@
 import json from "../../json/text.json";
 import styled from "styled-components";
 import { mobileMax } from "../responsiveness";
+import Up from "../../images/up.svg";
 
 const StyledHeader = styled.p`
   font-family: "Arya";
@@ -27,6 +28,7 @@ const StyledText = styled.section`
   color: #ffffff;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  white-space: nowrap;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     display: block;
   }
@@ -51,32 +53,64 @@ const StykedFooter = styled.footer`
   background: #32323f;
   position: relative;
   padding-top: 1%;
-  @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
+  padding-bottom: 4%;
+  display: grid;
+  justify-content: center;
+
+  @media (min-width: 300px) AND (max-width: 786px) {
+    display: flex;
     position: relative;
-    width: 80%;
+    justify-content: start;
+    padding-left: 10%;
+    width: 100%;
+  }
+  @media (min-width: 786px) AND (max-width: 1280px) {
+    padding: 5% 5% 5% 5%;
   }
 `;
 
-function Footer() {
+const StyledDiv = styled.div`
+  width: 100%;
+`;
+
+const ButtonUp = styled.a`
+  display: flex;
+  justify-content: end;
+  align-items: end;
+`;
+
+const Img = styled.img`
+  width: 36px;
+  height: 36px;
+`;
+
+function Footer(props: any) {
   return (
     <StykedFooter>
-      <StyledHeader id="contact">{json.contact.header}</StyledHeader>
-      <StyledText>
-        <div>{json.contact.name}</div>
-        <div>
-          {" Tel.: "}
-          <StyledTextA href="tel:+421 908 345 218">
-            {json.contact.tel}
-          </StyledTextA>
-        </div>
-        <div>
-          mail:
-          <StyledTextA href="mailto:frantisekpolak2458@gmail.com">
-            {" "}
-            {json.contact.mail}
-          </StyledTextA>
-        </div>
-      </StyledText>
+      <StyledDiv>
+        <StyledHeader id="contact">{json.contact.header}</StyledHeader>
+        <StyledText>
+          <div>{json.contact.name}</div>
+          <div>
+            {" Tel.: "}
+            <StyledTextA href="tel:+421 908 345 218">
+              {json.contact.tel}
+            </StyledTextA>
+          </div>
+          <div>
+            mail:
+            <StyledTextA href="mailto:frantisekpolak2458@gmail.com">
+              {" "}
+              {json.contact.mail}
+            </StyledTextA>
+          </div>
+        </StyledText>
+      </StyledDiv>
+      {props.width <= mobileMax ? (
+        <ButtonUp href={"#navbar"}>
+          <Img src={Up} alt={"UpButton"} />{" "}
+        </ButtonUp>
+      ) : null}
     </StykedFooter>
   );
 }
