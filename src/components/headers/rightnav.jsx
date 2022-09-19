@@ -103,7 +103,7 @@ const RightNav = ({ open, setOpen }) => {
                 </StyledA>
                 {open === true && window.innerWidth < 768 ? <StyledUl>
                   {e.child ? e.child.map((child, index2) =>
-                    <StyledLi2 key={index}>
+                    <StyledLi2 key={index2}>
                       <StyledA3 href={`#${child.href}`} key={index2} onClick={() => setOpen(!open)}>
                         {child.label}
                       </StyledA3>

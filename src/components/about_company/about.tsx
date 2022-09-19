@@ -35,8 +35,8 @@ const StyledArticle = styled.article`
     padding-bottom: 0%;
   }
   @media (min-width: 1450px) {
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
   }
 `;
 const StyledAbout = styled.div`
@@ -52,7 +52,6 @@ const StyledAbout = styled.div`
   @media (min-width: 1450px) {
     width: 50%;
   }
-
 `;
 
 const OrangeLine = styled.div(
@@ -66,23 +65,23 @@ const OrangeLine = styled.div(
   position: absolute;
 
   @media (min-width: 300px) AND (max-width: 418px) {
-    height: ${theme/4.5}%;
+    height: ${theme / 4.5}%;
     margin-top: 11%;
   }
   @media (min-width: 418px) AND (max-width: 518px) {
-    height: ${theme/5.5}%;
+    height: ${theme / 5.5}%;
     margin-top: 11%;
   }
   @media (min-width: 519px) AND (max-width:618px) {
-    height: ${theme/6.5}%;
+    height: ${theme / 6.5}%;
     margin-top: 11%;
   }
   @media (min-width: 618px) AND (max-width:700px) {
-    height: ${theme/7.5}%;
+    height: ${theme / 7.5}%;
     margin-top: 11%;
   }
   @media (min-width: 700px) AND (max-width:${mobileMax}px) {
-    height: ${theme/8.5}%;
+    height: ${theme / 8.5}%;
     margin-top: 11%;
   }
 `
@@ -90,20 +89,25 @@ const OrangeLine = styled.div(
 
 const StyledSection = styled.section`
   margin-left: 4%;
-  padding-top: 2% ;
+  padding-top: 2%;
 `;
 
-function About(props:any) {
+function About(props: any) {
   return (
     <StyledArticle>
       <StyledAbout>
-        <OrangeLine theme={props.width} />
+        <OrangeLine
+          theme={props.width}
+          data-aos="fade-down"
+          data-aos-duration="3000"
+          data-aos-once="true"
+        />
         <StyledSection>
           <StyledHeader id="about_company">
             {json.about_company.header}
           </StyledHeader>
-          {json.about_company.text.map((e: string, i: number) => {
-            return <StyledText key={i}> {e}</StyledText>;
+          {json.about_company.text.map((e: string, index: number) => {
+            return <StyledText key={index}> {e}</StyledText>;
           })}
         </StyledSection>
       </StyledAbout>

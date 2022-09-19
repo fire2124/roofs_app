@@ -62,7 +62,7 @@ const StykedFooter = styled.footer`
     position: relative;
     justify-content: start;
     padding-left: 10%;
-    width: 100%;
+    width: 75%;
   }
   @media (min-width: 786px) AND (max-width: 1280px) {
     padding: 5% 5% 5% 5%;
@@ -73,7 +73,7 @@ const StyledDiv = styled.div`
   width: 100%;
 `;
 
-const ButtonUp = styled.a`
+const ButtonUp = styled.div`
   display: flex;
   justify-content: end;
   align-items: end;
@@ -87,7 +87,11 @@ const Img = styled.img`
 function Footer(props: any) {
   return (
     <StykedFooter>
-      <StyledDiv>
+      <StyledDiv
+        data-aos="fade-right"
+        data-aos-duration="3000"
+        data-aos-once="true"
+      >
         <StyledHeader id="contact">{json.contact.header}</StyledHeader>
         <StyledText>
           <div>{json.contact.name}</div>
@@ -107,8 +111,14 @@ function Footer(props: any) {
         </StyledText>
       </StyledDiv>
       {props.width <= mobileMax ? (
-        <ButtonUp href={"#navbar"}>
-          <Img src={Up} alt={"UpButton"} />{" "}
+        <ButtonUp>
+          <a href="#top"
+            data-aos="fade-right"
+            data-aos-duration="3000"
+            data-aos-once="true"
+          >
+            <Img src={Up} alt={"UpButton"} />{" "}
+          </a>
         </ButtonUp>
       ) : null}
     </StykedFooter>

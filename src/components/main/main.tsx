@@ -70,7 +70,7 @@ const Bdiv2 = styled.div(
   @media (min-width: 1200px) and (max-width:1300px){
     width: 0;
     height: 0;
-    margin-top: -52%;
+    margin-top: -82%;
     border-bottom: ${1900}px solid #32323f;
     border-left: ${theme * 0.99}px solid transparent;
   }
@@ -172,9 +172,12 @@ const StyledImg = styled.img`
   position: absolute;
   z-index: 10;
   margin-top: 1.5%;
+  margin-left: -4.5%;
+  max-height: 163.5px;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     position: static;
     margin-left: 5%;
+    max-height: 163.5px;
   }
 `;
 
@@ -208,11 +211,11 @@ const StyledUl = styled.ul`
   list-style-type: none;
   @media (min-width: 300px) and (max-width: 45px) {
     margin-left: -6%;
-    width:84%;
+    width: 84%;
   }
   @media (min-width: 450px) and (max-width: ${mobileMax}px) {
     margin-left: -2%;
-    width:84%;
+    width: 84%;
   }
   @media (min-width: ${mobileMax}px) {
     margin-top: 0%;
@@ -241,7 +244,7 @@ const Offering = styled.section(
   @media (min-width: ${mobileMax}px) and (max-width: 1920px) {
     margin-top: ${theme.width * theme.percent}%;
     margin-left: 13%;
-    padding: 10%;
+    padding: 10% 10% 10% 16%;
     }
 `
 );
@@ -255,7 +258,11 @@ function Main(props: any) {
     <>
       <MainImg />
       <MainArticle>
-        <SectionFlex>
+        <SectionFlex
+          data-aos="fade-right"
+          data-aos-duration="3000"
+          data-aos-once="true"
+        >
           <StyledPadding>
             <WhiteH1>
               {json.main.h1.split(" ").map((e: any, index: number) => {
@@ -284,16 +291,17 @@ function Main(props: any) {
           <StyledImg
             src={width < mobileMax ? images.arrow2 : images.arrow}
             alt="arrow"
-            width="auto"
-            height="auto"
+            width="10%"
+            height="22%"
+            data-aos="fade-down"
+            data-aos-duration="3000"
+            data-aos-once="true"
           />
           <StyledUl id="our_services">
             {json.main.what_we_offer.map((e: any, i: number) => {
               return (
                 <StyledLi key={i}>
-                  <OfferingA href={e.href}>
-                    {e.text}
-                  </OfferingA>
+                  <OfferingA href={e.href}>{e.text}</OfferingA>
                 </StyledLi>
               );
             })}{" "}

@@ -47,48 +47,46 @@ const BackgroundOfGallery = styled.div`
     background: #e2dfdc;
   }
   @media (min-width: 1200px) {
-    margin-top: -100%;
     z-index: 100;
     position: relative;
   }
-  @media (min-width: 1200px) {
-    margin-top: -100%;
+  @media (min-width: 1200px)and (max-width: 1280px) {
+    margin-top: -75%;
   }
   @media (min-width: 1280px) and (max-width: 1300px) {
-    margin-top: -90%;
+    margin-top: -65%;
   }
   @media (min-width: 1300px) and (max-width: 1342px) {
     margin-top: -60%;
   }
   @media (min-width: 1342px) and (max-width: 1500px) {
-    margin-top: -45%;
+    margin-top: -50%;
   }
   @media (min-width: 1500px) and (max-width: 1680px) {
     margin-top: -65%;
   }
   @media (min-width: 1680px) {
     margin-top: -35%;
-
   }
 `;
 
 const StyledCarousel = styled(Carousel)`
-  @media (min-width: 300px) and (max-width:${mobileMax}px) {
-    width: 90% ;
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
+    width: 90%;
   }
-  @media (min-width: ${mobileMax}px) and (max-width:1920px) {
-    width: 33% ;
+  @media (min-width: ${mobileMax}px) and (max-width: 1920px) {
+    width: 33%;
   }
 `;
 
 const StyledDiv = styled.div`
-  @media (min-width: 300px) and (max-width:${mobileMax}px) {
+  @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     display: flex;
     justify-content: center;
   }
-  @media (min-width: ${mobileMax}px) and (max-width:1920px) {
+  @media (min-width: ${mobileMax}px) and (max-width: 1920px) {
     display: flex;
-    justify-content:center ;
+    justify-content: center;
     grid-template-columns: 33% 33% 33%;
     width: 100%;
     gap: 1%;
@@ -137,11 +135,18 @@ const arrayOfButtons = [
 
 const Bdiv2 = styled.div(
   ({ theme }) => `
-  @media (min-width: 300px) and (max-width:  ${mobileMax}px){
+  @media (min-width: 300px) and (max-width: ${mobileMax}px){
     width: 0;
     height: 0;
     margin-top: -60%;
     border-bottom: ${theme / 1.9}px solid #32323f;
+    border-left: ${theme * 0.98}px solid transparent;
+  }
+  @media (min-width: ${mobileMax}px) and (max-width: 1200px){
+    width: 0;
+    height: 0;
+    margin-top: -30%;
+    border-bottom: ${theme / 3}px solid #32323f;
     border-left: ${theme * 0.98}px solid transparent;
   }
 `
@@ -160,14 +165,20 @@ function Gallery(props: any) {
     <BackgroundOfGallery>
       <StyledDropdownDiv>
         <OrangeDropdown onChange={(e) => setValue(parseInt(e.target.value))}>
-          {arrayOfButtons.map((button: any) => {
+          {arrayOfButtons.map((button: any, index: number) => {
             return (
-              <OrangeOption value={button.number}>{button.label}</OrangeOption>
+              <OrangeOption key={index} value={button.number}>
+                {button.label}
+              </OrangeOption>
             );
           })}
         </OrangeDropdown>
       </StyledDropdownDiv>
-      <StyledDiv>
+      <StyledDiv
+        data-aos="fade-right"
+        data-aos-duration="2000"
+        data-aos-once="true"
+      >
         {current > 0 && props.width > mobileMax ? (
           <StyledImg2
             src={images[current - 1].original}
@@ -183,8 +194,8 @@ function Gallery(props: any) {
             setCurrent(index);
           }}
         >
-          {images.map((e: any) => {
-            return <StyledImg src={e.original} alt={e.alt} />;
+          {images.map((e: any, index: number) => {
+            return <StyledImg src={e.original} alt={e.alt} key={index} />;
           })}
         </StyledCarousel>
         {current < images.length - 1 && props.width > mobileMax ? (

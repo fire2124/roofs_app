@@ -255,7 +255,6 @@ const StyledOfferDiv3 = styled(StyledOfferDiv)`
   @media (min-width: 300px) and (max-width: ${mobileMax}px) {
     padding-bottom: 4%;
   }
-
 `;
 
 export const FlexOne = (props: any) => {
@@ -267,7 +266,11 @@ export const FlexOne = (props: any) => {
           : percent(FlexOneResponsiveness, props.width)
       }
     >
-      <ImageDiv>
+      <ImageDiv
+        data-aos="fade-right"
+        data-aos-duration="2000"
+        data-aos-once="true"
+      >
         <DarkBlueImg>
           <StyledImg
             src={props.width < 1305 ? images.house1_small : images.house1}
@@ -282,7 +285,13 @@ export const FlexOne = (props: any) => {
         if (i === 0)
           return (
             <StyledOfferDiv id={e.href} key={i}>
-              <OrangeLine theme={props.height[i]} />
+              <OrangeLine
+                theme={props.height[i]}
+                data-aos="fade-down"
+                data-aos-duration="3000"
+                data-aos-once="true"
+              />
+
               <OfferDivLeft>
                 <StyledH2> {e.label}</StyledH2>
                 <StyledP> {e.text}</StyledP>
@@ -292,7 +301,12 @@ export const FlexOne = (props: any) => {
         else if (i === 1)
           return (
             <StyledOfferDiv2 id={e.href} key={i}>
-              <OrangeLine2 theme={props.height[i]} />
+              <OrangeLine2
+                theme={props.height[i]}
+                data-aos="fade-down"
+                data-aos-duration="3000"
+                data-aos-once="true"
+              />
               <OfferDivRight>
                 <StyledH2Right>
                   {e.label.includes("<br/>") ? (
@@ -311,7 +325,12 @@ export const FlexOne = (props: any) => {
         else if (i === 2)
           return (
             <StyledOfferDiv3 id={e.href} key={i}>
-              <OrangeLine theme={props.height[i]} />
+              <OrangeLine
+                theme={props.height[i]}
+                data-aos="fade-down"
+                data-aos-duration="3000"
+                data-aos-once="true"
+              />
               <OfferDivLeft>
                 <StyledH2> {e.label}</StyledH2>
                 <StyledP> {e.text}</StyledP>

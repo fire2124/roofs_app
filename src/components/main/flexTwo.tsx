@@ -64,16 +64,14 @@ const DarkBlueImg = styled.div`
 
   @media (min-width: 980px) and (max-width: 1700px) {
     width: 95%;
-   
   }
   @media (min-width: 1701px) and (max-width: 1920px) {
     width: 80%;
   }
   @media (min-width: 1300px) and (max-width: 1600px) {
     margin-left: 10%;
-   
   }
-  @media (min-width: 1900px)  {
+  @media (min-width: 1900px) {
     margin-left: 6%;
   }
 `;
@@ -222,7 +220,7 @@ const StyledOfferDiv2 = styled.section`
     grid-column-start: 1 !important;
     flex-direction: row-reverse;
   }
-  
+
   @media (min-width: 1300px) {
     display: flex;
     flex-direction: row-reverse;
@@ -242,14 +240,15 @@ const StyledOfferDiv3 = styled.section`
   display: flex;
   flex: 0 1 auto;
   height: 90%;
+
+  @media (min-width: 1080px) {
+    padding: 0% 0% 0% 4%;
+  }
   @media (min-width: ${mobileMax}px) and (max-width: 1300px) {
     background: #e2dfdc;
     grid-row-start: 2;
     grid-column-start: 2 !important;
     padding: 12px 0 32px 0;
-  }
-  @media (min-width: 1080px) {
-    padding: 0% 0% 0% 4%;
   }
   @media (min-width: 1300px) {
     grid-column-start: 1 !important;
@@ -261,7 +260,6 @@ const StyledOfferDiv3 = styled.section`
     height: 100%;
     margin-left: 11%;
   }
-
 `;
 const ImageDiv = styled.section`
   @media (min-width: ${mobileMax}px) and (max-width: 1000px) {
@@ -274,7 +272,7 @@ const ImageDiv = styled.section`
     grid-column-start: 2;
     grid-column-end: 2;
   }
-  @media (min-width:1000px) and (max-width: 1300px) {
+  @media (min-width: 1000px) and (max-width: 1300px) {
     width: 87%;
     margin-left: 6%;
     /* margin-top: -4%; */
@@ -284,9 +282,8 @@ const ImageDiv = styled.section`
     grid-column-start: 2;
     grid-column-end: 2;
   }
-  @media (min-width:1000px) and (max-width: 1080px) {
+  @media (min-width: 1000px) and (max-width: 1080px) {
     margin-top: 1%;
-    
   }
   @media (min-width: 1300px) {
     width: 90%;
@@ -323,7 +320,12 @@ export const FlexTwo = (props: any) => {
           case 3:
             return (
               <StyledOfferDiv id={e.href} key={i}>
-                <OrangeLine theme={props.height[i]} />
+                <OrangeLine
+                  theme={props.height[i]}
+                  data-aos="fade-down"
+                  data-aos-duration="3000"
+                  data-aos-once="true"
+                />
                 <OfferDivLeft>
                   <StyledPBig> {e.label}</StyledPBig>
                   <StyledP> {e.text}</StyledP>
@@ -333,7 +335,12 @@ export const FlexTwo = (props: any) => {
           case 4:
             return (
               <StyledOfferDiv2 id={e.href} key={i}>
-                <OrangeLine theme={props.height[i]} />
+                <OrangeLine
+                  theme={props.height[i]}
+                  data-aos="fade-down"
+                  data-aos-duration="3000"
+                  data-aos-once="true"
+                />
                 <OfferDivRight>
                   <StyledPBigRight>
                     {e.label.includes("<br/>") ? (
@@ -352,16 +359,27 @@ export const FlexTwo = (props: any) => {
           case 5:
             return (
               <StyledOfferDiv3 id={e.href} key={i}>
-                <OrangeLine2 theme={props.height[i]} />
+                <OrangeLine2
+                  theme={props.height[i]}
+                  data-aos="fade-down"
+                  data-aos-duration="3000"
+                  data-aos-once="true"
+                />
                 <OfferDivLeft>
                   <StyledPBig> {e.label}</StyledPBig>
                   <StyledP> {e.text}</StyledP>
                 </OfferDivLeft>
               </StyledOfferDiv3>
             );
+          default:
+            return null;
         }
       })}
-      <ImageDiv>
+      <ImageDiv
+        data-aos="fade-right"
+        data-aos-duration="3000"
+        data-aos-once="true"
+      >
         <DarkBlueImg>
           <StyledImg
             src={props.width < 1305 ? images.house2_small : images.house2}

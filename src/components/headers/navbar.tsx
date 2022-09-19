@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Burger from "./burger";
 import logo from "../../images/logo.svg";
-import { mobileMax } from "../responsiveness";
 
 const StyledNav = styled.nav`
   width: 100%;
@@ -32,7 +31,7 @@ const StyledImg = styled.img`
 
 const Header = () => {
   return (
-    <StyledNav id="navbar">
+    <StyledNav>
       <StyledA href="/">
         <StyledImg src={logo} alt="Logo" width="200px" height="100%" />
       </StyledA>
