@@ -1,14 +1,14 @@
-import ilustracia from "../../images/strechy fotky/strešné okná/1.jpg";
-import ilustracia2 from "../../images/strechy fotky/strešné okná/2.jpg";
-import ilustracia3 from "../../images/strechy fotky/strešné okná/3.jpg";
-import ilustracia4 from "../../images/strechy fotky/strešné okná/4.jpg";
-import ilustracia5 from "../../images/strechy fotky/strešné okná/5.jpg";
-import ilustracia6 from "../../images/strechy fotky/strešné okná/6.jpg";
-import ilustracia7 from "../../images/strechy fotky/strešné okná/7.jpg";
-import ilustracia8 from "../../images/strechy fotky/strešné okná/8.jpg";
-import ilustracia9 from "../../images/strechy fotky/strešné okná/9.jpg";
-import ilustracia10 from "../../images/strechy fotky/strešné okná/10.jpg";
-import ilustracia11 from "../../images/strechy fotky/strešné okná/11.jpg";
+import ilustracia from "../../images/strechy fotky/strešné okná/1.webp";
+import ilustracia2 from "../../images/strechy fotky/strešné okná/2.webp";
+import ilustracia3 from "../../images/strechy fotky/strešné okná/3.webp";
+import ilustracia4 from "../../images/strechy fotky/strešné okná/4.webp";
+import ilustracia5 from "../../images/strechy fotky/strešné okná/5.webp";
+import ilustracia6 from "../../images/strechy fotky/strešné okná/6.webp";
+import ilustracia7 from "../../images/strechy fotky/strešné okná/7.webp";
+import ilustracia8 from "../../images/strechy fotky/strešné okná/8.webp";
+import ilustracia9 from "../../images/strechy fotky/strešné okná/9.webp";
+import ilustracia10 from "../../images/strechy fotky/strešné okná/10.webp";
+import ilustracia11 from "../../images/strechy fotky/strešné okná/11.webp";
 
 export const images_windows= [
   {

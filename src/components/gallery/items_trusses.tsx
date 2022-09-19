@@ -1,8 +1,8 @@
-import ilustracia from "../../images/strechy fotky/stavba krovov/1.jpg";
-import ilustracia2 from "../../images/strechy fotky/stavba krovov/2.jpg";
-import ilustracia3 from "../../images/strechy fotky/stavba krovov/3.jpg";
-import ilustracia4 from "../../images/strechy fotky/stavba krovov/4.jpg";
-import ilustracia5 from "../../images/strechy fotky/stavba krovov/5.jpg";
+import ilustracia from "../../images/strechy fotky/stavba krovov/1.webp";
+import ilustracia2 from "../../images/strechy fotky/stavba krovov/2.webp";
+import ilustracia3 from "../../images/strechy fotky/stavba krovov/3.webp";
+import ilustracia4 from "../../images/strechy fotky/stavba krovov/4.webp";
+import ilustracia5 from "../../images/strechy fotky/stavba krovov/5.webp";
 
 export const images_trusses = [
   {

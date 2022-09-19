@@ -1,19 +1,19 @@
-import ilustracia from "../../images/strechy fotky/pokladka roznych krytin/1.jpg";
-import ilustracia2 from "../../images/strechy fotky/pokladka roznych krytin/2.jpg";
-import ilustracia3 from "../../images/strechy fotky/pokladka roznych krytin/3.jpg";
-import ilustracia4 from "../../images/strechy fotky/pokladka roznych krytin/4.jpg";
-import ilustracia5 from "../../images/strechy fotky/pokladka roznych krytin/5.jpg";
-import ilustracia6 from "../../images/strechy fotky/pokladka roznych krytin/6.jpg";
-import ilustracia7 from "../../images/strechy fotky/pokladka roznych krytin/7.jpg";
-import ilustracia8 from "../../images/strechy fotky/pokladka roznych krytin/8.jpg";
-import ilustracia9 from "../../images/strechy fotky/pokladka roznych krytin/9.jpg";
-import ilustracia10 from "../../images/strechy fotky/pokladka roznych krytin/10.jpg";
-import ilustracia11 from "../../images/strechy fotky/pokladka roznych krytin/11.jpg";
-import ilustracia12 from "../../images/strechy fotky/pokladka roznych krytin/12.jpg";
-import ilustracia13 from "../../images/strechy fotky/pokladka roznych krytin/13.jpg";
-import ilustracia14 from "../../images/strechy fotky/pokladka roznych krytin/14.jpg";
-import ilustracia15 from "../../images/strechy fotky/pokladka roznych krytin/15.jpg";
-import ilustracia16 from "../../images/strechy fotky/pokladka roznych krytin/16.jpg";
+import ilustracia from "../../images/strechy fotky/pokladka roznych krytin/1.webp";
+import ilustracia2 from "../../images/strechy fotky/pokladka roznych krytin/2.webp";
+import ilustracia3 from "../../images/strechy fotky/pokladka roznych krytin/3.webp";
+import ilustracia4 from "../../images/strechy fotky/pokladka roznych krytin/4.webp";
+import ilustracia5 from "../../images/strechy fotky/pokladka roznych krytin/5.webp";
+import ilustracia6 from "../../images/strechy fotky/pokladka roznych krytin/6.webp";
+import ilustracia7 from "../../images/strechy fotky/pokladka roznych krytin/7.webp";
+import ilustracia8 from "../../images/strechy fotky/pokladka roznych krytin/8.webp";
+import ilustracia9 from "../../images/strechy fotky/pokladka roznych krytin/9.webp";
+import ilustracia10 from "../../images/strechy fotky/pokladka roznych krytin/10.webp";
+import ilustracia11 from "../../images/strechy fotky/pokladka roznych krytin/11.webp";
+import ilustracia12 from "../../images/strechy fotky/pokladka roznych krytin/12.webp";
+import ilustracia13 from "../../images/strechy fotky/pokladka roznych krytin/13.webp";
+import ilustracia14 from "../../images/strechy fotky/pokladka roznych krytin/14.webp";
+import ilustracia15 from "../../images/strechy fotky/pokladka roznych krytin/15.webp";
+import ilustracia16 from "../../images/strechy fotky/pokladka roznych krytin/16.webp";
 
 export const images_different = [
   {

@@ -183,6 +183,8 @@ function Gallery(props: any) {
           <StyledImg2
             src={images[current - 1].original}
             alt={images[current - 1].alt}
+            width="100%"
+            height="100%"
           />
         ) : null}
         <StyledCarousel
@@ -202,6 +204,8 @@ function Gallery(props: any) {
           <StyledImg2
             src={images[current + 1].original}
             alt={images[current + 1].alt}
+            width="100%"
+            height="100%"
           />
         ) : null}
       </StyledDiv>
