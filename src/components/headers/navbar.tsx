@@ -25,12 +25,17 @@ const StyledNav = styled.nav`
     padding-bottom: 4%;
 
   }
+
 `;
 
 const StyledA = styled.a`
   width:50%;
   display: flex;
   justify-content: start;
+  @media (min-width: 1600px) {
+    margin-left:8%;
+
+  }
 `
 
 const StyledImg = styled.img`

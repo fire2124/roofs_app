@@ -32,8 +32,8 @@ const Ul = styled.ul`
     @media (min-width: 1200px) {
       margin-left: 5%;
     }
-  @media (min-width: 1600px) {
-      margin-left: 15%;
+  @media (min-width: 1800px) {
+      margin-left: 9%;
     }
 `;
 
