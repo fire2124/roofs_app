@@ -135,12 +135,19 @@ const arrayOfButtons = [
 
 const Bdiv2 = styled.div(
   ({ theme }) => `
-  @media (min-width: 300px) and (max-width: ${mobileMax}px){
+  @media (min-width: 300px) and (max-width: 450px){
     width: 0;
     height: 0;
     margin-top: -60%;
     border-bottom: ${theme / 1.9}px solid #32323f;
-    border-left: ${theme * 0.98}px solid transparent;
+    border-left: ${theme * 0.962}px solid transparent;
+  }
+  @media (min-width: 450px) and (max-width: ${mobileMax}px){
+    width: 0;
+    height: 0;
+    margin-top: -60%;
+    border-bottom: ${theme / 1.9}px solid #32323f;
+    border-left: ${theme * 0.97}px solid transparent;
   }
   @media (min-width: ${mobileMax}px) and (max-width: 1200px){
     width: 0;

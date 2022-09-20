@@ -5,11 +5,14 @@ import RightNav from './rightnav';
 const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
-  position: fixed;
-  top: 15px;
-  right: 20px;
   z-index: 21;
   display: none;
+  @media (min-width: 300px) and (max-width:832px) {
+   margin-right: 5%;
+   margin-top:2%;
+   align-items: center;
+
+  }
   @media (max-width: 832px) {
     display: flex;
     justify-content: space-around;
@@ -40,11 +43,11 @@ const Burger = () => {
   return (
     <>
       <StyledBurger open={open} onClick={() => setOpen(!open)} >
-        <div/>
+        <div />
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open} setOpen={setOpen}/>
+      <RightNav open={open} setOpen={setOpen} />
     </>
   )
 }

@@ -12,9 +12,18 @@ const StyledNav = styled.nav`
   .logo {
     padding: 15px 0;
   }
+  /* @media (min-width: 300px) {
+    display: flex;
+  justify-content: space-between;
+  } */
   @media (min-width: 300px) and (max-width: 832px) {
-    justify-content: start;
-    padding: 5px 20px 20px;
+    justify-content: space-between;
+    padding: 0px;
+    padding-top: 2.5%;
+    width: 95%;
+    padding-left: 5%;
+    padding-bottom: 4%;
+
   }
 `;
 

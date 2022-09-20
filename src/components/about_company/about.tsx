@@ -44,6 +44,7 @@ const StyledAbout = styled.div`
   padding: 0 10% 0% 10%;
   @media (min-width: 300px) AND (max-width: ${mobileMax}px) {
     //width: 65%;
+    padding: 0 10% 0% 8%;
     width: 82%;
   }
   @media (min-width: ${mobileMax}px) AND (max-width: 1450px) {
