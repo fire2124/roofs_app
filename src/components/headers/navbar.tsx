@@ -4,7 +4,7 @@ import logo from "../../images/logo.svg";
 
 const StyledNav = styled.nav`
   width: 100%;
-  padding: 5px 20px;
+  padding: 0px 15px;
   display: flex;
   position: fixed;
   z-index: 203;
@@ -12,10 +12,7 @@ const StyledNav = styled.nav`
   .logo {
     padding: 15px 0;
   }
-  /* @media (min-width: 300px) {
-    display: flex;
-  justify-content: space-between;
-  } */
+
   @media (min-width: 300px) and (max-width: 832px) {
     justify-content: space-between;
     padding: 0px;
